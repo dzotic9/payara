@@ -1,0 +1,48 @@
+{
+  "jpsType": "install",
+  "application": {
+    "name": "Payara Micro Cluster",
+    "homepage": "http://jelastic.com/",
+    "description": "Autoscalable and Highly Available Payara Micro Cluster",
+    "env": {
+      "topology": {
+        "nodes": [
+          {
+            "nodeType": "docker",
+            "cloudlets": 16,
+            "nodeGroup": "mcast",
+            "displayName": "Multicast",
+            "docker": {
+              "registry": {
+                "url": "node72669-private-reg.demo.jelastic.com:11113"
+              },
+              "image": "multicast-base:latest",
+              "env" : {
+                "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME"
+              }
+            }
+          },
+          {
+            "nodeType": "docker",
+            "cloudlets": 16,
+            "count": 2,
+            "nodeGroup": "cp",
+            "displayName": "Payara-micro",
+            "docker": {
+              "registry": {
+                "url": "node72669-private-reg.demo.jelastic.com:11113"
+              },
+              "image": "payara-micro-multicast:latest",
+              "env" : {
+                "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME",
+                "VTUN_PASSWORD_EXPORT_VS" : "$VTUN_SERVER_VTUN_PASSWORD"
+              },
+              "links": "mcast:vtun_server",
+              "cmd_" : "echo OK"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
