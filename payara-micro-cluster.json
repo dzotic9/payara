@@ -13,10 +13,7 @@
             "nodeGroup": "mcast",
             "displayName": "Multicast",
             "docker": {
-              "registry": {
-                "url": "node72669-private-reg.demo.jelastic.com:11113"
-              },
-              "image": "multicast-base:latest",
+              "image": "jelastic/payara-micro-cluster:latest",
               "env" : {
                 "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME"
               }
@@ -29,16 +26,11 @@
             "nodeGroup": "cp",
             "displayName": "Payara-micro",
             "docker": {
-              "registry": {
-                "url": "node72669-private-reg.demo.jelastic.com:11113"
-              },
-              "image": "payara-micro-multicast:latest",
+              "image": "jelastic/payara-micro-cluster-multicast-bridge:latest",
               "env" : {
                 "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME",
-                "VTUN_PASSWORD_EXPORT_VS" : "$VTUN_SERVER_VTUN_PASSWORD"
               },
-              "links": "mcast:vtun_server",
-              "cmd_" : "echo OK"
+              "links": "mcast:vtun_server"
             }
           }
         ]
