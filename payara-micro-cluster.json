@@ -16,7 +16,8 @@
             "docker": {
               "image": "jelastic/payara-micro-cluster",
               "env" : {
-                "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME",
+              	"PORT" : "5080",
+                "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME"
               },
               "links": "mcast:vtun_server"
             }
