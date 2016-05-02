@@ -8,7 +8,7 @@ ENV VTUN_PASSWORD DONT_BE_DUPE_CHANGE_ME
 #Install packages on ubuntu base image 
 RUN apt-get update && \ 
 apt-get install -y wget && \ 
-apt-get install -y software-properties-common python-software-properties && \
+apt-get install -y software-properties-common python-software-properties 
 
 ADD start.sh /start.sh
 ADD config/hazelcast.xml /opt/hazelcast.xml
