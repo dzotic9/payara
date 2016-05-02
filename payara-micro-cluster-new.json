@@ -20,7 +20,6 @@
                 "HAZELCAST_USER": "DONT_BE_DUPE_CHANGE_ME",
                 "HAZELCAST_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
               },
-              "links": "mcast:vtun_server"
             }
           }
         ]
@@ -34,7 +33,6 @@
     "onAfterScaleOut[nodeGroup:cp]": {
       "call": [
         "updateClusterMembers",
-        "echo '${@} - ${@i.intIP}' >> /home/1.txt"
       ]
     },
     "onAfterScaleIn[nodeGroup:cp]": {
@@ -55,7 +53,8 @@
             "executeShellCommands": {
               "nodeId": "${@i.id}",
               "commands": [
-                "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml"
+                "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
+                "updateClusterMembers"
               ],
               "user": "root"
             }
