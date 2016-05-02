@@ -17,7 +17,8 @@
               "image": "jelastic/payara",
               "env": {
                 "PORT": "5080",
-                "VTUN_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
+                "HAZELCAST_USER": "DONT_BE_DUPE_CHANGE_ME",
+                "HAZELCAST_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
               },
               "links": "mcast:vtun_server"
             }
