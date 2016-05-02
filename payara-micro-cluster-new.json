@@ -27,27 +27,44 @@
     },
     "onInstall": {
       "call": [
-        "initCluster"
+        "updateClusterMembers"
       ]
+    },
+    "onAfterScaleOut[nodeGroup:cp]": {
+      "call": [
+        "updateClusterMembers"
+      ]
+    },
+    "onAfterScaleIn[nodeGroup:cp]": {
+      "forEach(${event.response.nodes})": {
+        "execCmd": {
+          "nodeId": "${@i.id}",
+          "commands": [
+            "sed -i '/${@i.intIP}'/d' /opt/hazelcast.xml"
+          ]
+        }
+      }
     },
     "procedures": [
       {
-        "id": "addNode",
+        "id": "updateClusterMembers",
         "onCall": {
-          "executeShellCommands": {
-            "nodeMission": "cp",
-            "commands": [
-              "sed '/<member-list/a  <member>${this.nodeip}</member>' /opt/hazelcast.xml"
-            ],
-            "user": "root"
+          "forEach(${event.response.newNodes})": {
+            "executeShellCommands": {
+              "nodeId": "${@i.id}",
+              "commands": [
+                "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml"
+              ],
+              "user": "root"
+            }
           }
         }
       },
       {
-        "id": "removeNode",
+        "id": "removeMember",
         "onCall": {
           "executeShellCommands": {
-            "nodeMission": "bl",
+            "nodeMission": "cp",
             "commands": [
               "sed '/${this.nodeip}/d' /opt/hazelcast.xml"
             ],
