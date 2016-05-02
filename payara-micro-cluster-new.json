@@ -32,7 +32,8 @@
     },
     "onAfterScaleOut[nodeGroup:cp]": {
       "call": [
-        "updateClusterMembers"
+        "updateClusterMembers",
+        "echo '${@} - ${@i.intIP}' >> /home/1.txt"
       ]
     },
     "onAfterScaleIn[nodeGroup:cp]": {
