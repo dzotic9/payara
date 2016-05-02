@@ -49,7 +49,7 @@
       {
         "id": "updateClusterMembers",
         "onCall": {
-          "forEach(${event.response.newNodes})": {
+          "forEach(${event.response.nodes})": {
             "executeShellCommands": {
               "nodeId": "${@i.id}",
               "commands": [
