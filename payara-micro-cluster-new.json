@@ -15,15 +15,46 @@
             "displayName": "PayaraCluster",
             "docker": {
               "image": "jelastic/payara",
-              "env" : {
-              	"PORT" : "5080",
-                "VTUN_PASSWORD" : "DONT_BE_DUPE_CHANGE_ME"
+              "env": {
+                "PORT": "5080",
+                "VTUN_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
               },
               "links": "mcast:vtun_server"
             }
           }
         ]
       }
-    }
+    },
+    "onInstall": {
+      "call": [
+        "initCluster"
+      ]
+    },
+    "procedures": [
+      {
+        "id": "addNode",
+        "onCall": {
+          "executeShellCommands": {
+            "nodeMission": "cp",
+            "commands": [
+              "sed '/<member-list/a  <member>${this.nodeip}</member>' /opt/hazelcast.xml"
+            ],
+            "user": "root"
+          }
+        }
+      },
+      {
+        "id": "removeNode",
+        "onCall": {
+          "executeShellCommands": {
+            "nodeMission": "bl",
+            "commands": [
+              "sed '/${this.nodeip}/d' /opt/hazelcast.xml"
+            ],
+            "user": "root"
+          }
+        }
+      }
+    ]
   }
 }
