@@ -19,7 +19,7 @@
                 "PORT": "5080",
                 "HAZELCAST_USER": "DONT_BE_DUPE_CHANGE_ME",
                 "HAZELCAST_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
-              },
+              }
             }
           }
         ]
@@ -32,7 +32,7 @@
     },
     "onAfterScaleOut[nodeGroup:cp]": {
       "call": [
-        "updateClusterMembers",
+        "updateClusterMembers"
       ]
     },
     "onAfterScaleIn[nodeGroup:cp]": {
