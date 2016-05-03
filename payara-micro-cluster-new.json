@@ -38,7 +38,7 @@
     "onAfterScaleIn[nodeGroup:cp]": {
       "forEach(event.response.nodes)": {
         "execCmd": {
-          "nodeId": "${@i.id}",
+          "nodeGroup": "cp",
           "commands": [
             "sed -i '/${@i.intIP}'/d' /opt/hazelcast.xml"
           ]
@@ -65,12 +65,14 @@
       {
         "id": "removeMember",
         "onCall": {
-          "executeShellCommands": {
-            "nodeMission": "cp",
-            "commands": [
-              "sed '/${this.nodeip}/d' /opt/hazelcast.xml"
+      "forEach(event.response.nodes)": {
+        "execCmd": {
+          "nodeGroup": "cp",
+          "commands": [
+              "sed '/${@i.intIP}/d' /opt/hazelcast.xml"
             ],
             "user": "root"
+          }
           }
         }
       }
