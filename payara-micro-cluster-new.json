@@ -23,7 +23,7 @@
             }
           }
         ]
-      }
+      },
       "onAfterScaleOut[nodeGroup:cp]": {
         "call": [
           "updateClusterMembers"
