@@ -49,10 +49,11 @@
       {
         "id": "updateClusterMembers",
         "onCall": {
-          "forEach(event.response.nodes)": {
+          "forEach(nodes.cp)": {
             "executeShellCommands": {
-              "nodeId": "${@i.id}",
+              "nodeGroup": "cp",
               "commands": [
+                "echo OK >> /home/1.txt",
                 "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
                 "echo ${@i.intIP} >> /home/1.txt"
               ],
