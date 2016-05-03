@@ -52,7 +52,7 @@
         "onCall": {
           "forEach(nodes.cp)": {
             "executeShellCommands": {
-              "nodeGroup": "cp",
+              "nodeId" : "${@i.id}",
               "commands": [
                 "grep -q ${@i.intIP} /opt/hazelcast.xml || sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
                 "echo ADEED ${@i.intIP >> /home/1.txt"
