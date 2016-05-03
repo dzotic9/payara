@@ -4,6 +4,8 @@ HAZALCAST_CONFIG="/opt/hazelcast.xml";
 LOG="/var/log/cluster_manager.log"
 
 echo "$@" >> $LOG;
+sed -i "s@USERNAME@${HAZALCAST_USERNAME}@g" $HAZALCAST_CONFIG;
+sed -i "s@PASSWORD@${HAZALCAST_PASSWORD}@g" $HAZALCAST_CONFIG;
 
 function addHost(){
     [ ! -z "$host" ] && { grep -q "$host" $HAZALCAST_CONFIG || sed -i "/<member-list/a  <member>${host}</member>" $HAZALCAST_CONFIG; 
