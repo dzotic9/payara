@@ -23,12 +23,7 @@
             }
           }
         ]
-      },
-      "onInstall": {
-        "call": [
-          "updateClusterMembers"
-        ]
-      },
+      }
       "onAfterScaleOut[nodeGroup:cp]": {
         "call": [
           "updateClusterMembers"
@@ -46,6 +41,11 @@
         }
       }
     },
+    "onInstall": {
+        "call": [
+          "updateClusterMembers"
+        ]
+      },
     "procedures": [
       {
         "id": "updateClusterMembers",
