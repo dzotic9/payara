@@ -12,6 +12,7 @@ apt-get install -y software-properties-common python-software-properties
 
 ADD start.sh /start.sh
 ADD config/hazelcast.xml /opt/hazelcast.xml
+ADD config/clusterManager.sh /opt/clusterManager.sh
 RUN chmod +x /start.sh
 
 # Install Java 8 

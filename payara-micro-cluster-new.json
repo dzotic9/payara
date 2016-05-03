@@ -26,7 +26,7 @@
       },
       "onAfterScaleOut[nodeGroup:cp]": {
         "call": [
-          "updateClusterMembers"
+          "addClusterMembers"
         ]
       },
       "onAfterScaleIn[nodeGroup:cp]": {
@@ -34,8 +34,7 @@
           "execCmd": {
             "nodeGroup": "cp",
             "commands": [
-              "sed -i '/${@i.intIP}'/d' /opt/hazelcast.xml",
-              "echo REMOVED ${@i.intIP >> /home/1.txt"
+              "/opt/clusterManager.sh --removehost ${@i.intIP}"
             ]
           }
         }
@@ -43,19 +42,18 @@
     },
     "onInstall": {
         "call": [
-          "updateClusterMembers"
+          "addClusterMembers"
         ]
       },
     "procedures": [
       {
-        "id": "updateClusterMembers",
+        "id": "addClusterMembers",
         "onCall": {
           "forEach(nodes.cp)": {
             "executeShellCommands": {
               "nodeGroup" : "cp",
               "commands": [
-                "grep -q \"${@i.intIP}\" /opt/hazelcast.xml || sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
-                "echo ADEED ${@i.intIP >> /home/1.txt"
+                "/opt/clusterManager.sh --addhost ${@i.intIP}"
               ],
               "user": "root"
             }
