@@ -54,7 +54,7 @@
               "nodeId": "${@i.id}",
               "commands": [
                 "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
-                "updateClusterMembers"
+                "echo ${@i.intIP} >> /home/1.txt"
               ],
               "user": "root"
             }
