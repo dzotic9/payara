@@ -23,25 +23,26 @@
             }
           }
         ]
-      }
-    },
-    "onInstall": {
-      "call": [
-        "updateClusterMembers"
-      ]
-    },
-    "onAfterScaleOut[nodeGroup:cp]": {
-      "call": [
-        "updateClusterMembers"
-      ]
-    },
-    "onAfterScaleIn[nodeGroup:cp]": {
-      "forEach(event.response.nodes)": {
-        "execCmd": {
-          "nodeGroup": "cp",
-          "commands": [
-            "sed -i '/${@i.intIP}'/d' /opt/hazelcast.xml"
-          ]
+      },
+      "onInstall": {
+        "call": [
+          "updateClusterMembers"
+        ]
+      },
+      "onAfterScaleOut[nodeGroup:cp]": {
+        "call": [
+          "updateClusterMembers"
+        ]
+      },
+      "onAfterScaleIn[nodeGroup:cp]": {
+        "forEach(event.response.nodes)": {
+          "execCmd": {
+            "nodeGroup": "cp",
+            "commands": [
+              "sed -i '/${@i.intIP}'/d' /opt/hazelcast.xml",
+              "echo REMOVED ${@i.intIP >> /home/1.txt"
+            ]
+          }
         }
       }
     },
@@ -53,29 +54,13 @@
             "executeShellCommands": {
               "nodeGroup": "cp",
               "commands": [
-                "echo OK >> /home/1.txt",
-                "sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
-                "echo ${@i.intIP} >> /home/1.txt"
+                "grep -q ${@i.intIP} /opt/hazelcast.xml || sed -i '/<member-list/a  <member>${@i.intIP}</member>' /opt/hazelcast.xml",
+                "echo ADEED ${@i.intIP >> /home/1.txt"
               ],
               "user": "root"
             }
           }
         }
-      },
-      {
-        "id": "removeMember",
-        "onCall": {
-      "forEach(event.response.nodes)": {
-        "execCmd": {
-          "nodeGroup": "cp",
-          "commands": [
-              "sed '/${@i.intIP}/d' /opt/hazelcast.xml"
-            ],
-            "user": "root"
-          }
-          }
-        }
-      }
-    ]
+      }    ]
   }
 }
