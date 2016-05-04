@@ -2,7 +2,7 @@
   "jpsType": "install",
   "application": {
     "name": "Payara Micro Cluster",
-    "homepage": "http://jelastic.com/",
+    "homepage": "http://www.payara.fish/",
     "description": "Autoscalable and Highly Available Payara Micro Cluster",
     "env": {
       "topology": {
