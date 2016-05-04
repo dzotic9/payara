@@ -12,13 +12,12 @@
             "cloudlets": 16,
             "count": 2,
             "nodeGroup": "cp",
-            "displayName": "PayaraCluster",
             "docker": {
               "image": "jelastic/payara",
               "env": {
                 "PORT": "5080",
-                "HAZELCAST_USER": "DONT_BE_DUPE_CHANGE_ME",
-                "HAZELCAST_PASSWORD": "DONT_BE_DUPE_CHANGE_ME"
+                "HAZELCAST_USER": "CHANGE_ME",
+                "HAZELCAST_PASSWORD": "CHANGE_ME"
               }
             }
           }
@@ -50,15 +49,15 @@
         "id": "addClusterMembers",
         "onCall": {
           "forEach(nodes.cp)": {
-            "executeShellCommands": {
+            "execCmd": {
               "nodeGroup" : "cp",
               "commands": [
                 "/opt/clusterManager.sh --addhost ${@i.intIP}"
-              ],
-              "user": "root"
+              ]
             }
           }
         }
-      }    ]
+      }    
+    ]
   }
 }
