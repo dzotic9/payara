@@ -8,7 +8,7 @@ sed -i "s@USERNAME@${HAZALCAST_USER}@g" $HAZALCAST_CONFIG;
 sed -i "s@PASSWORD@${HAZALCAST_PASSWORD}@g" $HAZALCAST_CONFIG;
 
 function addHost(){
-    [ ! -z "$host" ] && { grep -q "$host" $HAZALCAST_CONFIG || sed -i "/<member-list/a  <member>${host}</member>" $HAZALCAST_CONFIG; 
+    [ ! -z "$host" ] && { grep -q "$host" $HAZALCAST_CONFIG || sed -i "/<member-list/a \\\t\t\t<member>${host}</member>" $HAZALCAST_CONFIG; 
     echo "HOST $host ADEED"  >>  $LOG; }
 }
 
