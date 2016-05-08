@@ -13,9 +13,8 @@
             "count": 2,
             "nodeGroup": "cp",
             "docker": {
-              "image": "jelastic/payara",
+              "image": "jelastic/payara-micro-cluster",
               "env": {
-                "PORT": "5080",
                 "HAZELCAST_USER": "CHANGE_ME",
                 "HAZELCAST_PASSWORD": "CHANGE_ME"
               }
