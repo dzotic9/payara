@@ -12,7 +12,6 @@
             "cloudlets": 16,
             "count": 2,
             "nodeGroup": "cp",
-            "displayName": "Payara-micro",
             "docker": {
               "image": "jelastic/payara-micro-cluster-multicast",
               "env" : {
@@ -25,7 +24,7 @@
             "nodeType": "docker",
             "cloudlets": 16,
             "nodeGroup": "mcast",
-            "displayName": "Multicast",
+            "displayName": "Bridge",
             "docker": {
               "image": "jelastic/payara-micro-cluster-multicast-vtun-bridge:latest",
               "env" : {
