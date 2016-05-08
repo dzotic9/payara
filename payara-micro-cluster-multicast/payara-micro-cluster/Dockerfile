@@ -8,13 +8,17 @@ ENV VTUN_PASSWORD DONT_BE_DUPE_CHANGE_ME
 #Install packages on ubuntu base image 
 RUN apt-get update && \ 
 apt-get install -y wget && \ 
-apt-get install -y software-properties-common python-software-properties 
+apt-get install -y software-properties-common python-software-properties && \
+apt-get install -y vtun
+
+ADD config/vtund.conf /etc/vtund.conf
+ADD config/vtun /etc/default/vtun
+
+ADD init/vtun /etc/init.d/vtun
+RUN chmod +x /etc/init.d/vtun
 
 ADD start.sh /start.sh
-ADD config/hazelcast.xml /opt/hazelcast.xml
-ADD config/clusterManager.sh /opt/clusterManager.sh
 RUN chmod +x /start.sh
-RUN chmod +x /opt/clusterManager.sh
 
 # Install Java 8 
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
