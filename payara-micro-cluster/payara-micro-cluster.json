@@ -10,7 +10,7 @@
           {
             "nodeType": "docker",
             "cloudlets": 16,
-            "count": 2,
+            "count": 1,
             "nodeGroup": "cp",
             "docker": {
               "image": "jelastic/payara-micro-cluster",
