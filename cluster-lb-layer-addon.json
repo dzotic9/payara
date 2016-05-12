@@ -1,0 +1,150 @@
+{
+  "jpsType": "update",
+  "application": {
+    "name": "LB Layer for HA Cluster",
+    "homepage": "http://jelastic.com/",
+    "description": "LB Layer for Weblogic HA Cluster ",
+    "targetNodes": {
+      "nodeGroup": "cp"
+    },
+    "addons": [
+      {
+        "id": "lb-scripts-addon",
+        "onInstall": [
+          {
+            "call": [
+              "install-logic",
+              "update-list-of-cp-nodes"
+            ]
+          }
+        ],
+        "env": {
+          "onAfterAddNode[nodeGroup:cp]": {
+            "call": "update-list-of-cp-nodes"
+          },
+          "onBeforeRemoveNode[nodeGroup:cp]": {
+            "call": [
+              {
+                "procedure": "update-list-of-cp-nodes",
+                "params": {
+                  "removenodeid": "${event.params.nodeid}"
+                }
+              }
+            ]
+          },
+          "onAfterAddNode[nodeGroup:bl]": {
+            "call": {
+              "procedure": "install-and-update",
+              "params": {
+                "nodeId": "${event.response.node.id}"
+              }
+            }
+          },
+          "onAfterRedeployContainer": {
+            "call": {
+              "procedure": "install-and-update",
+              "params": {
+                "nodeId": "${event.params.nodeId}"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "onInstall": [
+      {
+        "call": "add-lb-layer"
+      },
+      {
+        "installAddon": {
+          "id": "lb-scripts-addon",
+          "nodeGroup": "cp"
+        }
+      }
+    ],
+    "procedures": [
+      {
+        "id": "add-lb-layer",
+        "onCall": [
+          {
+            "addNodes": {
+              "nodeType": "docker",
+              "cloudlets": 16,
+              "dockerName": "haproxy",
+              "dockerTag": "latest",
+              "displayName": "LoadBalancer",
+              "nodeGroup": "bl",
+              "metadata": {
+                "layer": "bl"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "update-lb",
+        "onCall": {
+          "executeShellCommands": {
+            "nodeGroup": "bl",
+            "nodeId": "${this.nodeId}",
+            "commands": [
+              "/root/lb_manager.sh ${this.command} >> /var/log/run.log 2>&1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "update-list-of-cp-nodes",
+        "onCall": {
+          "executeScript": {
+            "type": "js",
+            "script": "http://goo.gl/S5qVwv",
+            "params": {
+              "nodeGroup": "cp",
+              "procedure": "update-lb",
+              "removenode": "${this.removenodeid}",
+              "nodeId": "${this.nodeId}"
+            }
+          }
+        }
+      },
+      {
+        "id": "install-logic",
+        "onCall": {
+          "executeShellCommands": [
+            {
+              "nodeGroup": "bl",
+              "nodeId": "${this.nodeId}",
+              "commands": [
+                "wget https://goo.gl/Hk2dDP -O /root/lb_manager.sh >> /var/log/run.log 2>&1",
+                "chmod +x /root/lb_manager.sh",
+                "wget https://goo.gl/DtmdVG -O /usr/local/etc/haproxy/haproxy.cfg >> /var/log/run.log 2>&1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "install-and-update",
+        "onCall": [
+          {
+            "call": [
+              {
+                "procedure": "install-logic",
+                "params": {
+                  "nodeId": "${this.nodeId}"
+                }
+              },
+              {
+                "procedure": "update-list-of-cp-nodes",
+                "params": {
+                  "nodeId": "${this.nodeId}"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
