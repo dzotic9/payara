@@ -3,7 +3,6 @@ FROM ubuntu:14.04.4
 
 ENV PAYARA_PKG http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=fish.payara.extras&a=payara-micro&v=LATEST 
 ENV PKG_FILE_NAME payara-micro.jar 
-ENV VTUN_PASSWORD DONT_BE_DUPE_CHANGE_ME
 
 #Install packages on ubuntu base image 
 RUN apt-get update && \ 
