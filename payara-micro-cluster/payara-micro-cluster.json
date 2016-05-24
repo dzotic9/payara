@@ -17,7 +17,8 @@
               "env": {
                 "HAZELCAST_USER": "CHANGE_ME",
                 "HAZELCAST_PASSWORD": "CHANGE_ME"
-              }
+              },
+              "volumes" : ["/opt/payara-micro-wars", "/opt/config", "/var/log"]
             }
           }
         ]

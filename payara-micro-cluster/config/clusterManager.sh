@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HAZALCAST_CONFIG="/opt/hazelcast.xml";
+HAZALCAST_CONFIG="/opt/config/hazelcast.xml";
 LOG="/var/log/cluster_manager.log"
 
 echo "$@" >> $LOG;
