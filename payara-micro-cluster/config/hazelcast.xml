@@ -15,13 +15,14 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-                <interface>venet0:0</interface>
                 <member-list>
                 </member-list>
             </tcp-ip>
         </join>
         <interfaces enabled="false">
-            <interface>*.*.*.*</interface>
+            <interface>10.*.*.*</interface>
+            <interface>172.16.*.*</interface>  
+            <interface>192.168.*.*</interface>
         </interfaces>
         <ssl enabled="false"/>
         <socket-interceptor enabled="false"/>
