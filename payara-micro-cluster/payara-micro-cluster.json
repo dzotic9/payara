@@ -23,7 +23,7 @@
           }
         ]
       },
-      "onBeforeScaleOut[nodeGroup:cp]": {
+      "onAfterScaleOut[nodeGroup:cp]": {
         "call": [
           "addClusterMembers"
         ]
