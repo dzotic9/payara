@@ -12,7 +12,6 @@
             "cloudlets": 16,
             "count": 1,
             "nodeGroup": "cp",
-            "startService": "false",
             "docker": {
               "image": "jelastic/payara-micro-cluster",
               "env": {
