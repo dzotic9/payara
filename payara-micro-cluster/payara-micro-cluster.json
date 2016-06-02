@@ -12,22 +12,29 @@
             "cloudlets": 16,
             "count": 1,
             "nodeGroup": "cp",
+            "startService": "false",
             "docker": {
               "image": "jelastic/payara-micro-cluster",
               "env": {
                 "HAZELCAST_GROUP": "CHANGE_ME",
                 "HAZELCAST_PASSWORD": "CHANGE_ME"
               },
-              "volumes" : ["/opt/payara-micro-wars", "/opt/config", "/var/log"]
+              "volumes": [
+                "/opt/payara-micro-wars",
+                "/opt/config",
+                "/var/log"
+              ]
             }
           }
         ]
       },
-      "onAfterScaleOut[nodeGroup:cp]": {
-        "call": [
-          "addClusterMembers"
-        ]
-      },
+      "onBeforeServiceScaleOut[nodeGroup:cp]": [
+          {
+            "call": {
+              "procedure": "addClusterMembers"
+            }
+          }
+       ],
       "onAfterScaleIn[nodeGroup:cp]": {
         "forEach(event.response.nodes)": {
           "execCmd": {
@@ -40,24 +47,24 @@
       }
     },
     "onInstall": {
-        "call": [
-          "addClusterMembers"
-        ]
-      },
+      "call": [
+        "addClusterMembers"
+      ]
+    },
     "procedures": [
       {
         "id": "addClusterMembers",
         "onCall": {
           "forEach(nodes.cp)": {
             "execCmd": {
-              "nodeGroup" : "cp",
+              "nodeGroup": "cp",
               "commands": [
                 "/opt/clusterManager.sh --addhost ${@i.intIP}"
               ]
             }
           }
         }
-      }    
+      }
     ]
   }
 }
