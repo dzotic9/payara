@@ -24,14 +24,12 @@
         <property name="hazelcast.mancenter.enabled">true</property>
         <property name="hazelcast.map.cleanup.delay.seconds">10</property>
         <property name="hazelcast.map.load.chunk.size">1000</property>
-        <property name="hazelcast.map.max.backup.count">5</property>
+        <property name="hazelcast.map.max.backup.count">10</property>
         <property name="hazelcast.map.partition.count">271</property>
         <property name="hazelcast.map.remove.delay.seconds">5</property>
-        <property name="hazelcast.max.no.heartbeat.seconds">30</property>
+        <property name="hazelcast.max.no.heartbeat.seconds">300</property>
         <property name="hazelcast.max.wait.seconds.before.join">5</property>
         <property name="hazelcast.memcache.enabled">true</property>
-        <property name="hazelcast.merge.first.run.delay.seconds">10</property>
-        <property name="hazelcast.merge.next.run.delay.seconds">10</property>
         <property name="hazelcast.out.thread.priority">7</property>
         <property name="hazelcast.redo.wait.millis">500</property>
         <property name="hazelcast.restart.on.max.idle">false</property>

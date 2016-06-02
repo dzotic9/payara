@@ -8,7 +8,7 @@ sed -i "s@GROUPNAME@${HAZELCAST_GROUP}@g" $HAZELCAST_CONFIG;
 sed -i "s@PASSWORD@${HAZELCAST_PASSWORD}@g" $HAZELCAST_CONFIG;
 
 function addHost(){
-    [ ! -z "$host" ] && { grep -q "$host" $HAZELCAST_CONFIG || sed -i "/<member-list/a \\\t\t\t<member>${host}</member>" $HAZELCAST_CONFIG; 
+    [ ! -z "$host" ] && { grep -q "$host" $HAZELCAST_CONFIG || sed -i "/<member-list/a \\\t\t\t<member>${host}</member>" $HAZELCAST_CONFIG;
     echo "HOST $host ADEED"  >>  $LOG; }
 }
 
