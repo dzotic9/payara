@@ -13,8 +13,10 @@ ADD start.sh /start.sh
 RUN mkdir -p /opt/config
 ADD config/hazelcast.xml /opt/config/hazelcast.xml
 ADD config/clusterManager.sh /opt/clusterManager.sh
+ADD config/memoryConfig.sh /opt/memoryConfig.sh
 RUN chmod +x /start.sh
 RUN chmod +x /opt/clusterManager.sh
+RUN chmod +x /opt/memoryConfig.sh
 
 # Install Java 8 
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
