@@ -1,5 +1,6 @@
 {
   "jpsType": "install",
+  "jpsVersion" : "4.5",
   "application": {
     "name": "Payara Micro Cluster Multicast",
     "homepage": "http://jelastic.com/",
@@ -8,7 +9,6 @@
       "topology": {
         "nodes": [
           {
-            "nodeType": "docker",
             "cloudlets": 16,
             "count": 2,
             "nodeGroup": "cp",
@@ -21,7 +21,6 @@
             }
           },
 	  {
-            "nodeType": "docker",
             "cloudlets": 16,
             "nodeGroup": "mcast",
             "displayName": "Bridge",
