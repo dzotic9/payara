@@ -1,6 +1,6 @@
 {
   "jpsType": "install",
-  "jpsVersion": "0.7",
+  "jpsVersion": "0.8",
   "application": {
     "name": "Payara Micro Cluster",
     "homepage": "http://www.payara.fish/",
@@ -49,7 +49,7 @@
           "forEach(nodes.cp)": {
             "execCmd": {
               "nodeGroup": "cp",
-              "commands": "/opt/clusterManager.sh --addhost ${@i.intIP}"
+              "commands": "/opt/bin/clusterManager.sh --addhost ${@i.intIP}"
             }
           }
         }
