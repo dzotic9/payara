@@ -14,11 +14,12 @@ RUN mkdir -p /opt/config
 RUN mkdir -p /opt/bin
 RUN mkdir -p /opt/lib
 ADD config/hazelcast.xml /opt/config/hazelcast.xml
-ADD bin/clusterManager.sh /opt/clusterManager.sh
-ADD config/memoryConfig.sh /opt/memoryConfig.sh
+ADD bin/clusterManager.sh /opt/bin/clusterManager.sh
+ADD bin/memoryConfig.sh /opt/bin/memoryConfig.sh
+ADD lib/jelastic-gc-agent.jar /opt/lib/jelastic-gc-agent.jar
 RUN chmod +x /start.sh
-RUN chmod +x /opt/clusterManager.sh
-RUN chmod +x /opt/memoryConfig.sh
+RUN chmod +x /opt/bin/clusterManager.sh
+RUN chmod +x /opt/bin/memoryConfig.sh
 
 # Install Java 8 
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
