@@ -9,7 +9,6 @@ function addHost(){
 }
 
 
-
 function removeHost(){
     [ ! -z "$host" ] && sed -i "/${host}/d" $HAZELCAST_CONFIG && echo "HOST $host REMOVED"  >>  $LOG;
 
