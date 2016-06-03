@@ -9,10 +9,12 @@ RUN apt-get update && \
 apt-get install -y wget && \ 
 apt-get install -y software-properties-common python-software-properties 
 
-ADD start.sh /start.sh
+ADD /bin/start.sh /start.sh
 RUN mkdir -p /opt/config
+RUN mkdir -p /opt/bin
+RUN mkdir -p /opt/lib
 ADD config/hazelcast.xml /opt/config/hazelcast.xml
-ADD config/clusterManager.sh /opt/clusterManager.sh
+ADD bin/clusterManager.sh /opt/clusterManager.sh
 ADD config/memoryConfig.sh /opt/memoryConfig.sh
 RUN chmod +x /start.sh
 RUN chmod +x /opt/clusterManager.sh
