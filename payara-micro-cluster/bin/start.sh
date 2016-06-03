@@ -9,7 +9,7 @@ sed -i "s@PASSWORD@${HAZELCAST_PASSWORD}@g" $HAZELCAST_CONFIG;
 
 source /opt/bin/memoryConfig.sh
 
-[ ! -z "$VERT_SCALING" ] && JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/lib/jelastic-gc-agent.jar=period=$GC_PERIOD"
+[ ! -z "$VERT_SCALING" -a "$VERT_SCALING" != "false" -a "$VERT_SCALING" != "0" ] && JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/lib/jelastic-gc-agent.jar=period=$GC_PERIOD"
 
 java -jar /opt/payara-micro.jar $JAVA_OPTS --port $PORT --deploymentDir /opt/payara-micro-wars --hzConfigFile /opt/config/hazelcast.xml 
 
