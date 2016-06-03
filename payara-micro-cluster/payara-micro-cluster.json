@@ -1,5 +1,6 @@
 {
   "jpsType": "install",
+  "jpsVersion" : "4.7",
   "application": {
     "name": "Payara Micro Cluster",
     "homepage": "http://www.payara.fish/",
