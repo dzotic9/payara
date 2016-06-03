@@ -9,7 +9,6 @@
       "topology": {
         "nodes": [
           {
-            "nodeType": "docker",
             "cloudlets": 16,
             "count": 1,
             "nodeGroup": "cp",
@@ -39,17 +38,14 @@
         "forEach(event.response.nodes)": {
           "execCmd": {
             "nodeGroup": "cp",
-            "commands": [
-              "/opt/clusterManager.sh --removehost ${@i.intIP}"
-            ]
+            "commands": "/opt/clusterManager.sh --removehost ${@i.intIP}"
           }
         }
       }
     },
-    "onInstall": {
-      "call": [
-        "addClusterMembers"
-      ]
+   "onInstall": {
+      "call": "addClusterMembers"
+    },
     },
     "procedures": [
       {
@@ -58,9 +54,7 @@
           "forEach(nodes.cp)": {
             "execCmd": {
               "nodeGroup": "cp",
-              "commands": [
-                "/opt/clusterManager.sh --addhost ${@i.intIP}"
-              ]
+              "commands":  "/opt/clusterManager.sh --addhost ${@i.intIP}"
             }
           }
         }
