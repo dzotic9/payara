@@ -3,7 +3,7 @@
 GC_LIMMIT=8000;
 [ -z "$XMS" ] && { XMS=32M; }
 [ -z "$XMN" ] && { XMN=30M; }
-local memory_total=`free -m | grep Mem | awk '{print $2}'`;
+memory_total=`free -m | grep Mem | awk '{print $2}'`;
 [ -z "$XMX" ] && {
             let XMX=memory_total-35;
             XMX="${XMX}M";
