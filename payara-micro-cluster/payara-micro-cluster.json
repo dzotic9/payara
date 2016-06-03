@@ -1,6 +1,6 @@
 {
   "jpsType": "install",
-  "jpsVersion" : "4.7",
+  "jpsVersion": "4.7",
   "application": {
     "name": "Payara Micro Cluster",
     "homepage": "http://www.payara.fish/",
@@ -27,13 +27,9 @@
           }
         ]
       },
-      "onBeforeServiceScaleOut[nodeGroup:cp]": [
-          {
-            "call": {
-              "procedure": "addClusterMembers"
-            }
-          }
-       ],
+      "onBeforeServiceScaleOut[nodeGroup:cp]": {
+        "call": "addClusterMembers"
+      },
       "onAfterScaleIn[nodeGroup:cp]": {
         "forEach(event.response.nodes)": {
           "execCmd": {
@@ -43,9 +39,8 @@
         }
       }
     },
-   "onInstall": {
+    "onInstall": {
       "call": "addClusterMembers"
-    },
     },
     "procedures": [
       {
@@ -54,7 +49,7 @@
           "forEach(nodes.cp)": {
             "execCmd": {
               "nodeGroup": "cp",
-              "commands":  "/opt/clusterManager.sh --addhost ${@i.intIP}"
+              "commands": "/opt/clusterManager.sh --addhost ${@i.intIP}"
             }
           }
         }
