@@ -9,7 +9,7 @@
       "topology": {
         "nodes": [
           {
-            "flexibleCloudlets": 16,
+            "cloudlets": 16,
             "count": 1,
             "nodeGroup": "cp",
             "docker": {
