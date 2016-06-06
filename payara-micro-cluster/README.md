@@ -14,7 +14,9 @@ Scaling can be triggered manually via [Jelastic Topology Wizard](https://docs.je
 
 ### Vertical Scaling 
 
-Each container with Payara Micro application server can be scaled vertically by increasing the total available RAM for the container. By default, [optimal configs](bin/memoryConfig.sh) are applied to JVM accroding. You can rewire the defualt configuration directly in the script or by defining environment variables such as XMX, XMS, XMN, MAXPERSIZE, GC.     
+Each container with Payara Micro application server can be scaled vertically by increasing the total available RAM for the container. By default, [optimal memory configs](bin/memoryConfig.sh) are applied to JVM accroding to the available RAM. You can change default configs by defining environment variables such as XMX, XMS, XMN, MAXPERSIZE, XMAXF, XMINF, GC or adjust the memory configs script accroding to your needs.
+
+In addition, the package injects [Jelastic GC Agent](lib/jelastic-gc-agent.jar) by default. It helps to scale JVM vertically automatically by forcing memory heap compaction periodically. As result the application consumes less RAM during idle time. If it significantly influences your performnance you can disable the agent injection by defining environment variable VERT_SCALING=false.
 
 ### Deploy to Jelastic
 
