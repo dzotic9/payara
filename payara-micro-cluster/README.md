@@ -27,7 +27,7 @@ This approach helps to save money and do not pay for unused resources. More deta
 
 Please note, Full GC is used by the agent. If it significantly influences performance of your application then you can easily disable the agent injection by defining environment variable VERT_SCALING=false.
 
-### Deploy to Jelastic
+### Deployment
 
 The JPS package can be deployed via [environment import](https://docs.jelastic.com/environment-export-import#import) feature.
 
