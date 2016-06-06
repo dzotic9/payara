@@ -31,7 +31,6 @@ then
             JAVA_OPTS=$JAVA_OPTS" $GC"; 
 fi
 
-
 if ! `echo $JAVA_OPTS | grep -q "\-Xminf[[:digit:]\.]"`
 then
             [ -z "$XMINF" ] && { XMINF=-Xminf0.1; }
@@ -44,11 +43,11 @@ then
             JAVA_OPTS=$JAVA_OPTS" $XMAXF"; 
 fi
 
-# 1) we need to check version of java, if it's > 7 then ignore this parameter 
 if ! `echo $JAVA_OPTS | grep -q "\-XX:MaxPermSize"`
 then
             [ -z "$MAXPERMSIZE" ] && { 
                         JAVA_VERSION=$(java -version 2>&1 | grep version |  awk -F '.' '{print $2}')
+                        # if java version <= 7 then congigure MaxPermSize otherwise ignore 
                         [ $JAVA_VERSION -le 7 ] && {
                             let MAXPERMSIZE_VALUE=$XMX/10; 
                             [ $MAXPERMSIZE_VALUE -ge 64 ] && {
