@@ -19,7 +19,8 @@ Each container with Payara Micro application server can be scaled vertically by 
 In addition, the package injects [Jelastic GC Agent](lib/jelastic-gc-agent.jar) that helps to scale JVM vertically automatically by forcing memory heap compaction periodically by default. As a result the application consumes less RAM during idle time. 
 
 <img src="https://drive.google.com/uc?export=view&id=0BwJfg6h8bVzUVDNyWkh1aTZ3OGM" alt="JVM Automatic Vertical Scaling" align="left" width="500" >
-This approach helps to save money in Jelastic Cloud  
+
+This approach helps to save money and do not pay for unsed resources. More details about technology can be found in the article [http://blog.jelastic.com/2014/12/11/paas-automatic-vertical-scaling/](http://blog.jelastic.com/2014/12/11/paas-automatic-vertical-scaling/) and [Vertical scaling for Java applications](http://blog.jelastic.com/2011/07/28/vertical-scaling-for-java-applications/).  
 
 
 
