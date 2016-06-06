@@ -45,7 +45,6 @@ then
 fi
 
 # 1) we need to check version of java, if it's > 7 then ignore this parameter 
-# 2) otherwise to define MaxPermSize in optimal way (it should not be bigger than available RAM) 
 if ! `echo $JAVA_OPTS | grep -q "\-XX:MaxPermSize"`
 then
             [ -z "$MAXPERMSIZE" ] && { 
