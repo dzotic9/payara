@@ -12,6 +12,10 @@ When application server cluster scales out new containers join the cluster autom
 
 Scaling can be triggered manually via [Jelastic Topology Wizard](https://docs.jelastic.com/multi-nodes#app) or automatically by defining [horizontal scaling triggers](https://docs.jelastic.com/automatic-horizontal-scaling#set-up) or via [Jelastic API](https://docs.jelastic.com/api/).
 
+### Vertical Scaling 
+
+Each container with Payara Micro application server can be scaled vertically by increasing the total available RAM for the container. By default, [optimal configs](bin/memoryConfig.sh) are applied to JVM accroding. You can rewire the defualt configuration directly in the script or by defining environment variables such as XMX, XMS, XMN, MAXPERSIZE, GC.     
+
 ### Deploy to Jelastic
 
 The JPS package can be deployed via [environment import](https://docs.jelastic.com/environment-export-import#import) feature.
