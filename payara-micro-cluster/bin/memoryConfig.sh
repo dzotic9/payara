@@ -48,11 +48,14 @@ fi
 if ! `echo $JAVA_OPTS | grep -q "\-XX:MaxPermSize"`
 then
             [ -z "$MAXPERMSIZE" ] && { 
-                        let MAXPERMSIZE_VALUE=$XMX/10; 
-                        [ $MAXPERMSIZE_VALUE -ge 64 ] && {
-                                    [ $MAXPERMSIZE_VALUE -gt 256 ] && { MAXPERMSIZE_VALUE=256; }
-                                    MAXPERMSIZE="-XX:MaxPermSize=${MAXPERMSIZE_VALUE}M";
-                                    JAVA_OPTS=$JAVA_OPTS" $MAXPERMSIZE";
+                        JAVA_VERSION=$(java -version 2>&1 | grep version |  awk -F '.' '{print $2}')
+                        [ $JAVA_VERSION -le 7 ] && {
+                            let MAXPERMSIZE_VALUE=$XMX/10; 
+                            [ $MAXPERMSIZE_VALUE -ge 64 ] && {
+                                        [ $MAXPERMSIZE_VALUE -gt 256 ] && { MAXPERMSIZE_VALUE=256; }
+                                        MAXPERMSIZE="-XX:MaxPermSize=${MAXPERMSIZE_VALUE}M";
+                                     JAVA_OPTS=$JAVA_OPTS" $MAXPERMSIZE";
+                             }
                         }
             }
             JAVA_OPTS=$JAVA_OPTS" $MAXPERMSIZE";
