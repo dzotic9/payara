@@ -22,7 +22,7 @@ The package injects [Jelastic GC Agent](lib/jelastic-gc-agent.jar) that helps to
 
 <img src="https://drive.google.com/uc?export=view&id=0BwJfg6h8bVzUVDNyWkh1aTZ3OGM" alt="JVM Automatic Vertical Scaling" align="left" width="500" >
 
-This approach helps to save money and do not pay for unused resources. More details about the benefits of this technology can be found in the article [The Only PaaS with Automatic Vertical Scaling for Containers](http://blog.jelastic.com/2014/12/11/paas-automatic-vertical-scaling/).  
+This approach helps to save money and not to pay for unused resources. More details about the benefits of this technology can be found in the article [The Only PaaS with Automatic Vertical Scaling for Containers](http://blog.jelastic.com/2014/12/11/paas-automatic-vertical-scaling/).  
 
 
 Please note, Full GC is used by the agent. If it significantly influences performance of your application then you can easily disable the agent injection by defining environment variable VERT_SCALING=false.
