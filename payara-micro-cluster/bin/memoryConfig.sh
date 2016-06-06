@@ -51,7 +51,8 @@ then
             [ -z "$MAXPERMSIZE" ] && { 
                         let MAXPERMSIZE_VALUE=$XMX/10; 
                         [ $MAXPERMSIZE_VALUE -ge 64 ] && {
-                                    MAXPERMSIZE="-XX:MaxPermSize=$MAXPERMSIZE_VALUE";
+                                    [ $MAXPERMSIZE_VALUE -gt 256 ] && { MAXPERMSIZE_VALUE=256; }
+                                    MAXPERMSIZE="-XX:MaxPermSize=${MAXPERMSIZE_VALUE}m";
                                     JAVA_OPTS=$JAVA_OPTS" $MAXPERMSIZE";
                         }
             }
