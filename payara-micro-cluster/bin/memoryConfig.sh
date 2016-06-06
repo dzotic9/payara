@@ -5,12 +5,12 @@ GC_LIMMIT=8000;
 [ -z "$XMN" ] && { XMN=30M; }
 memory_total=`free -m | grep Mem | awk '{print $2}'`;
 [ -z "$XMX" ] && {
-#how much should we left for OS? 35M per 1GB? 
-#default values of -Xmx http://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html 
-            let XMX=memory_total-35;
+#optimal XMX = 90% * total available RAM
+#it differs from default values -Xmx http://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html
+            let XMX=memory_total*9/10;
             XMX="${XMX}M";
 }
-[ -z "$GC" ] && {  [ "$memory_total" -ge "$GC_LIMMIT" ] && GC="-XX:+UseG1GC" || GC="-XX:+UseParNewGC"; }
+[ -z "$GC" ] && {  [ "$XMX" -ge "$GC_LIMMIT" ] && GC="-XX:+UseG1GC" || GC="-XX:+UseParNewGC"; }
 
 if ! `echo $confresult | grep -q "\-Xminf[[:digit:]\.]"`
 then
