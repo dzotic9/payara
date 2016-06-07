@@ -24,16 +24,6 @@ then
             JAVA_OPTS=$JAVA_OPTS" $XMX";
 fi
 
-if ! `echo $JAVA_OPTS | grep -q "\-XX:+Use.*GC"`
-then
-            GC_LIMMIT=8000;
-            XMX_VALUE=`echo $XMX | grep -o "[0-9]*"`;
-            XMX_UNIT=`echo $XMX | sed "s/-Xmx//g" | grep -io "g\|m"`;
-            [ $XMX_UNIT == "g" -o $XMX_UNIT == "G" ] && { let XMX_VALUE=$XMX_VALUE*1024; } 
-            [ -z "$GC" ] && {  [ "$XMX_VALUE" -ge "$GC_LIMMIT" ] && GC="-XX:+UseG1GC" || GC="-XX:+UseParNewGC"; }
-            JAVA_OPTS=$JAVA_OPTS" $GC"; 
-fi
-
 if ! `echo $JAVA_OPTS | grep -q "\-Xminf[[:digit:]\.]"`
 then
             [ -z "$XMINF" ] && { XMINF="-Xminf0.1"; }
@@ -46,15 +36,16 @@ then
             JAVA_OPTS=$JAVA_OPTS" $XMAXF"; 
 fi
 
+XMX_VALUE=`echo $XMX | grep -o "[0-9]*"`;
+XMX_UNIT=`echo $XMX | sed "s/-Xmx//g" | grep -io "g\|m"`;
+[ $XMX_UNIT == "g" -o $XMX_UNIT == "G" ] && { let XMX_VALUE=$XMX_VALUE*1024; } 
+
 if ! `echo $JAVA_OPTS | grep -q "\-XX:MaxPermSize"`
 then
             [ -z "$MAXPERMSIZE" ] && { 
                         JAVA_VERSION=$(java -version 2>&1 | grep version |  awk -F '.' '{print $2}')
                         # if java version <= 7 then congigure MaxPermSize otherwise ignore 
                         [ $JAVA_VERSION -le 7 ] && {
-                        	XMX_VALUE=`echo $XMX | grep -o "[0-9]*"`
-                        	XMX_UNIT=`echo $XMX | sed "s/-Xmx//g" | grep -io "g\|m"`;
-            	            	[ $XMX_UNIT == "g" -o $XMX_UNIT == "G" ] && { let XMX_VALUE=$XMX_VALUE*1024; } 
 		            	let MAXPERMSIZE_VALUE=$XMX_VALUE/10; 
                         	[ $MAXPERMSIZE_VALUE -ge 64 ] && {
                                 	[ $MAXPERMSIZE_VALUE -gt 256 ] && { MAXPERMSIZE_VALUE=256; }
@@ -64,6 +55,13 @@ then
             }
             JAVA_OPTS=$JAVA_OPTS" $MAXPERMSIZE";
 fi
+ 
+if ! `echo $JAVA_OPTS | grep -q "\-XX:+Use.*GC"`
+then
+            GC_LIMMIT=8000;
+            [ -z "$GC" ] && {  [ "$XMX_VALUE" -ge "$GC_LIMMIT" ] && GC="-XX:+UseG1GC" || GC="-XX:+UseParNewGC"; }
+            JAVA_OPTS=$JAVA_OPTS" $GC"; 
+fi 
    
 if ! `echo $JAVA_OPTS | grep -q "UseCompressedOops"`
 then
