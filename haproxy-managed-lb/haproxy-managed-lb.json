@@ -49,7 +49,7 @@
             "execCmd": {
               "nodeGroup" : "bl",
               "commands": [
-                "/root/lb_manager.sh --addhost ${@i.intIP}"
+                "/root/lb_manager.sh --addhosts ${@i.intIP}"
               ]
             }
           }
