@@ -1,0 +1,23 @@
+{
+  "jpsType": "install",
+  "application": {
+    "name": "Payara Server Full",
+    "homepage": "http://www.payara.fish/",
+    "description": "Example of Payara Server in Docker",
+    "env": {
+      "topology": {
+        "nodes": [
+          {
+            "cloudlets": 16,
+            "count": 1,
+            "nodeGroup": "cp",
+            "docker": {
+              "image": "payara/server-full",
+	      "runCmd": ["/opt/payara41/bin/asadmin", "start-domain payaradomain"]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
