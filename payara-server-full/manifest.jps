@@ -13,7 +13,7 @@
             "nodeGroup": "cp",
             "docker": {
               "image": "payara/server-full",
-	      "cmd": ["/opt/payara41/bin/asadmin", "start-domain payaradomain"]
+	      "cmd": "/opt/payara41/bin/asadmin start-domain payaradomain"
             }
           }
         ]
