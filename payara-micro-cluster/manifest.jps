@@ -35,7 +35,7 @@
         "forEach(event.response.nodes)": {
           "execCmd": {
             "nodeGroup": "cp",
-            "commands": "/opt/clusterManager.sh --removehost ${@i.intIP}"
+            "commands": "/opt/bin/clusterManager.sh --removehost ${@i.intIP}"
           }
         }
       }
