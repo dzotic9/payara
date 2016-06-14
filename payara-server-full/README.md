@@ -5,7 +5,7 @@ The JPS package initially deploys one container with Payara Server Full. The pac
 
 ### Deployment
 
-To deploy this package to Jelastic  Cloud, import [this JPS manifest](../../raw/master/payara-server-full/manifest.jps) within your dashboard ([detailed instruction](https://docs.jelastic.com/environment-export-import#import)).
+To deploy this package to Jelastic  Cloud, import [this JPS manifest](../../../raw/master/payara-server-full/manifest.jps) within your dashboard ([detailed instruction](https://docs.jelastic.com/environment-export-import#import)).
 
 ### Access to Admin Console 
 After the deployment go to [Endpoints Panel](https://docs.jelastic.com/endpoints) and copy the predefined link to the admin console.  
