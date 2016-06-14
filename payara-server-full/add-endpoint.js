@@ -55,7 +55,7 @@ return oScripting.eval({
 			"id": "Payara Server Full",
 			"name": "Payara Server Full",
 			"success": {
-				"email": "Below you will find the link to the Payara Server Admin Console.</br> <table style='font-size:13px; border: none;'><tr><td>Admin Console URL:</td><td style='padding-left: 10px;'><a href='https://${env.domain}:"+ oResp.object.publicPort + "/' target='_blank'>htpps://${env.domain}:"+ oResp.object.publicPort+"/</a></td></tr><tr><td>Username:</td><td  style='padding-left: 10px'>admin</td></tr><tr><td>Password:</td><td  style='padding-left: 10px'>admin</td></tr></table />"
+				"email": "Below you will find the link to the Payara Server Admin Console.</br> <table style='font-size:13px; border: none;'><tr><td>Admin Console URL:</td><td style='padding-left: 10px;'><a href='https://${env.domain}:"+ oResp.object.publicPort + "/' target='_blank'>https://${env.domain}:"+ oResp.object.publicPort+"/</a></td></tr><tr><td>Username:</td><td  style='padding-left: 10px'>admin</td></tr><tr><td>Password:</td><td  style='padding-left: 10px'>admin</td></tr></table />"
 			}
 		}
     })
