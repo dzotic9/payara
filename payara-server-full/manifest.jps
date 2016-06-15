@@ -8,6 +8,7 @@
       "topology": {
         "nodes": [
           {
+            "nodeType": "docker",
             "cloudlets": 16,
             "count": 1,
             "nodeGroup": "cp",
