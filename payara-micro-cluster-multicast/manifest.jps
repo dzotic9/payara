@@ -1,6 +1,6 @@
 {
   "jpsType": "install",
-  "jpsVersion" : "4.5",
+  "jpsVersion" : "0.8",
   "application": {
     "name": "Payara Micro Cluster Multicast",
     "homepage": "http://jelastic.com/",
