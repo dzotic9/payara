@@ -1,4 +1,4 @@
-# Pull ubuntu base image. 
+# Pull source ubuntu base image. 
 FROM ubuntu:14.04.4 
 
 ENV PAYARA_PKG http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=fish.payara.extras&a=payara-micro&v=LATEST 
