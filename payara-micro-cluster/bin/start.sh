@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=${PORT:-80}
+PORT=${PORT:-8080}
 GC_PERIOD=${GC_PERIOD:-300}
 GC_DEBUG=${GC_DEBUG:-0}
 HAZELCAST_CONFIG="$HOME/config/hazelcast.xml";
