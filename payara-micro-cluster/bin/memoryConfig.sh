@@ -38,7 +38,9 @@ fi
 
 XMX_VALUE=`echo $XMX | grep -o "[0-9]*"`;
 XMX_UNIT=`echo $XMX | sed "s/-Xmx//g" | grep -io "g\|m"`;
-[ $XMX_UNIT == "g" -o $XMX_UNIT == "G" ] && { let XMX_VALUE=$XMX_VALUE*1024; } 
+[ $XMX_UNIT == "g" -o $XMX_UNIT == "G" ] && { 
+	let XMX_VALUE=$XMX_VALUE*1024; 
+} 
 
 JAVA_VERSION=$(java -version 2>&1 | grep version |  awk -F '.' '{print $2}')
 
