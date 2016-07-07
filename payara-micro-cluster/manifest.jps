@@ -20,8 +20,8 @@
                 "VERT_SCALING": "true"
               },
               "volumes": [
-                "/opt/payara-micro-wars",
-                "/opt/config",
+                "/opt/payara/deployments",
+                "/opt/payara/config",
                 "/var/log"
               ]
             }
@@ -35,7 +35,7 @@
         "forEach(event.response.nodes)": {
           "execCmd": {
             "nodeGroup": "cp",
-            "commands": "/opt/bin/clusterManager.sh --removehost ${@i.intIP}"
+            "commands": "$PAYARA_PATH/bin/clusterManager.sh --removehost ${@i.intIP}"
           }
         }
       }
@@ -50,7 +50,7 @@
           "forEach(nodes.cp)": {
             "execCmd": {
               "nodeGroup": "cp",
-              "commands": "/opt/bin/clusterManager.sh --addhost ${@i.intIP}"
+              "commands": "$PAYARA_PATH/bin/clusterManager.sh --addhost ${@i.intIP}"
             }
           }
         }
