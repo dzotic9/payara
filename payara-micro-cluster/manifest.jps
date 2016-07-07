@@ -20,7 +20,7 @@
                 "VERT_SCALING": "true"
               },
               "volumes": [
-                "$PAYARA_PATH/deployments",
+                "/opt/payara/deployments",
                 "/opt/payara/config",
                 "/var/log"
               ]
