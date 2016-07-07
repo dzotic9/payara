@@ -1,4 +1,4 @@
-FROM payara:micro 
+FROM payara/micro:latest
 
 
 #ENV PAYARA_PKG http://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=fish.payara.extras&a=payara-micro&v=LATEST 
