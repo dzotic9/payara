@@ -9,15 +9,18 @@ FROM payara/micro:latest
 #apt-get install -y wget && \ 
 #apt-get install -y software-properties-common python-software-properties 
 
-ADD bin/start.sh /start.sh
-RUN mkdir -p $PAYARA_PATH/config
 RUN mkdir -p $PAYARA_PATH/bin
+RUN mkdir -p $PAYARA_PATH/config
 RUN mkdir -p $PAYARA_PATH/lib
-ADD config/hazelcast.xml $PAYARA_PATH/config/hazelcast.xml
+
+ADD bin/start.sh $PAYARA_PATH/bin/start.sh
 ADD bin/clusterManager.sh $PAYARA_PATH/bin/clusterManager.sh
 ADD bin/memoryConfig.sh $PAYARA_PATH/bin/memoryConfig.sh
+
+ADD config/hazelcast.xml $PAYARA_PATH/config/hazelcast.xml
 ADD lib/jelastic-gc-agent.jar $PAYARA_PATH/lib/jelastic-gc-agent.jar
-RUN chmod +x /start.sh
+
+RUN chmod +x $PAYARA_PATH/start.sh
 RUN chmod +x $PAYARA_PATH/bin/clusterManager.sh
 RUN chmod +x $PAYARA_PATH/bin/memoryConfig.sh
 
