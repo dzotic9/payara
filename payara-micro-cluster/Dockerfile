@@ -9,6 +9,7 @@ FROM payara/micro:latest
 #apt-get install -y wget && \ 
 #apt-get install -y software-properties-common python-software-properties 
 
+USER payara
 RUN mkdir -p $PAYARA_PATH/bin
 RUN mkdir -p $PAYARA_PATH/config
 RUN mkdir -p $PAYARA_PATH/lib
