@@ -20,9 +20,13 @@ ADD bin/memoryConfig.sh $PAYARA_PATH/bin/memoryConfig.sh
 ADD config/hazelcast.xml $PAYARA_PATH/config/hazelcast.xml
 ADD lib/jelastic-gc-agent.jar $PAYARA_PATH/lib/jelastic-gc-agent.jar
 
-RUN chmod +x $PAYARA_PATH/start.sh
+USER root
+RUN chmod +x $PAYARA_PATH/bin/start.sh
 RUN chmod +x $PAYARA_PATH/bin/clusterManager.sh
 RUN chmod +x $PAYARA_PATH/bin/memoryConfig.sh
+
+USER payara
+
 
 # Install Java 8 
 #RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
