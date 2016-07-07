@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HAZELCAST_CONFIG="$HOME/config/hazelcast.xml";
+HAZELCAST_CONFIG="$PAYARA_PATH/config/hazelcast.xml";
 LOG="/var/log/cluster_manager.log"
 
 function addHost(){

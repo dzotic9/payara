@@ -35,8 +35,7 @@
         "forEach(event.response.nodes)": {
           "execCmd": {
             "nodeGroup": "cp",
-            "commands": "$PAYARA_PATH/bin/clusterManager.sh --removehost ${@i.intIP}",
-            "user": "payara"
+            "commands": "$PAYARA_PATH/bin/clusterManager.sh --removehost ${@i.intIP}"
           }
         }
       }
@@ -51,8 +50,7 @@
           "forEach(nodes.cp)": {
             "execCmd": {
               "nodeGroup": "cp",
-              "commands": "$PAYARA_PATH/bin/clusterManager.sh --addhost ${@i.intIP}",
-              "user": "payara"
+              "commands": "$PAYARA_PATH/bin/clusterManager.sh --addhost ${@i.intIP}"
             }
           }
         }
