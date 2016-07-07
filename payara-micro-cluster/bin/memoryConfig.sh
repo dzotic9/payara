@@ -38,7 +38,7 @@ fi
 
 XMX_VALUE=`echo $XMX | grep -o "[0-9]*"`;
 XMX_UNIT=`echo $XMX | sed "s/-Xmx//g" | grep -io "g\|m"`;
-if [ "$XMX_UNIT" = "g" ] || [ "$XMX_UNIT" = "G" ] ; then  
+if [[ $XMX_UNIT == "g" ]] || [[ $XMX_UNIT == "G" ]] ; then 
 	let XMX_VALUE=$XMX_VALUE*1024; 
 fi
 
