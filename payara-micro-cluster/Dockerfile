@@ -1,6 +1,5 @@
 FROM payara/micro:latest
 
-USER payara
 RUN mkdir -p $PAYARA_PATH/bin
 RUN mkdir -p $PAYARA_PATH/config
 RUN mkdir -p $PAYARA_PATH/lib
