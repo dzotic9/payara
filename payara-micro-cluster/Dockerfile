@@ -17,4 +17,4 @@ RUN chmod +x $PAYARA_PATH/bin/clusterManager.sh
 RUN chmod +x $PAYARA_PATH/bin/memoryConfig.sh
 
 USER payara
-CMD ["$HOME/bin/start.sh"]
+CMD ["$PAYARA_PATH/bin/start.sh"]

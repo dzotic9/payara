@@ -8,9 +8,9 @@ HAZELCAST_CONFIG="$HOME/config/hazelcast.xml";
 sed -i "s@GROUPNAME@${HAZELCAST_GROUP}@g" $HAZELCAST_CONFIG;
 sed -i "s@PASSWORD@${HAZELCAST_PASSWORD}@g" $HAZELCAST_CONFIG;
 
-source $HOME/bin/memoryConfig.sh
+source $PAYARA_PATH/bin/memoryConfig.sh
 
-[ "$VERT_SCALING" != "false" -a "$VERT_SCALING" != "0" ] && JAVA_OPTS="$JAVA_OPTS -javaagent:$HOME/lib/jelastic-gc-agent.jar=period=$GC_PERIOD,debug=$GC_DEBUG"
+[ "$VERT_SCALING" != "false" -a "$VERT_SCALING" != "0" ] && JAVA_OPTS="$JAVA_OPTS -javaagent:$PAYARA_PATH/lib/jelastic-gc-agent.jar=period=$GC_PERIOD,debug=$GC_DEBUG"
 
-java $JAVA_OPTS -jar $HOME/payara-micro.jar --port $PORT --deploymentDir $HOME/deployments --hzConfigFile $HOME/config/hazelcast.xml 
+java $JAVA_OPTS -jar $PAYARA_PATH/payara-micro.jar --port $PORT --deploymentDir $PAYARA_PATH/deployments --hzConfigFile $PAYARA_PATH/config/hazelcast.xml 
 
