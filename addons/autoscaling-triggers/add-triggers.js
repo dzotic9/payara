@@ -1,26 +1,22 @@
-import com.hivext.api.environment.Trigger;
+//@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
-var APPID = hivext.local.getParam("TARGET_APPID");
-var SESSION = hivext.local.getParam("session");
-triger =hivext.local.exp.wrapRequest(new Trigger(APPID, SESSION));
-
-oRespTurnOn = triger.addTrigger({
+resp = jelastic.env.Trigger.addTrigger({
     data : {
         "isEnabled": true,
-        "name": "hs-add-nginx",
-        "nodeGroup": "cp",
-        "period": 1,
+        "name": "scale-up",
+        "nodeGroup": nodeGroup,
+        "period": scaleUpLoadPeriod,
         "condition": {
             "type": "GREATER",
-            "value": 70,
-            "resourceType": "CPU",
+            "value": scaleUpValue,
+            "resourceType": resourceType,
             "valueType": "PERCENTAGES"
         },
         "actions": [
             {
                 "type": "ADD_NODE",
                 "customData": {
-                    "limit": 6,
+                    "limit": scaleUpLimit,
                     "count": 1,
                     "notify": true
                 }
@@ -29,27 +25,25 @@ oRespTurnOn = triger.addTrigger({
     }
 });
 
-if (oRespTurnOn.result != 0) {
-    return oRespTurnOn;
-}
+if (resp.result != 0) return resp;
 
-oRespTurnOff = triger.addTrigger({
+resp = triger.addTrigger({
     data : {
         "isEnabled": true,
-        "name": "hs-remove-nginx",
-        "nodeGroup": "cp",
-        "period": 15,
+        "name": "scale-down",
+        "nodeGroup": nodeGroup,
+        "period": scaleDownLoadPeriod,
         "condition": {
             "type": "LESS",
-            "value": 5,
-            "resourceType": "CPU",
+            "value": scaleDownValue,
+            "resourceType": resourceType,
             "valueType": "PERCENTAGES"
         },
         "actions": [
             {
                 "type": "REMOVE_NODE",
                 "customData": {
-                    "limit": 2,
+                    "limit": scaleDownLimit,
                     "count": 1,
                     "notify": true
                 }
@@ -58,11 +52,4 @@ oRespTurnOff = triger.addTrigger({
     }
 });
 
-
-if (oRespTurnOff.result != 0) {
-    return oRespTurnOff;
-}
-
-return {
-    result : 0
-};
+return resp;
