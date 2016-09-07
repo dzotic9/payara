@@ -1,7 +1,8 @@
 //@auth
-//@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod, cleanTriggers)
+//@required(nodeGroup, resourceType, cleanOldTriggers)
+//@required(scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
-if (cleanTriggers) {
+if (cleanOldTriggers) {
     var array = jelastic.env.trigger.GetTriggers(appid, session, ['ADD_NODE']).array;
     for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);  
     
