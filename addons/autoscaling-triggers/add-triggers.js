@@ -1,7 +1,7 @@
 //@auth
 //@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
-resp = jelastic.env.trigger.AddTrigger(
+resp = jelastic.env.trigger.AddTrigger('${env.envName}', session, 
     {
         "isEnabled": true,
         "name": "scale-up",
@@ -28,7 +28,7 @@ resp = jelastic.env.trigger.AddTrigger(
 
 if (resp.result != 0) return resp;
 
-resp = jelastic.env.trigger.AddTrigger(
+resp = jelastic.env.trigger.AddTrigger('${env.envName}', session,
     {
         "isEnabled": true,
         "name": "scale-down",
