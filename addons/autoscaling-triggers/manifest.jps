@@ -23,7 +23,7 @@
               "scaleDownValue": 30,
               "scaleDownLimit": 1,
               "scaleDownLoadPeriod": 1,
-              "cleanTriggers" : true
+              "cleanOldTriggers" : true
             }
           }
         }
