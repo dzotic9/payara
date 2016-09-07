@@ -28,7 +28,7 @@ resp = jelastic.env.trigger.AddTrigger(appid, session, {
 
 if (resp.result != 0) return resp;
 
-resp = jelastic.env.trigger.AddTrigger({
+resp = jelastic.env.trigger.AddTrigger(appid, session, {
     data : {
         "isEnabled": true,
         "name": "scale-down",
