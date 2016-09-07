@@ -1,7 +1,7 @@
 //@auth
 //@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
-resp = jelastic.env.trigger.addTrigger({
+resp = jelastic.env.trigger.addTrigger(appid, session, {
     data : {
         "isEnabled": true,
         "name": "scale-up",
