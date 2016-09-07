@@ -1,5 +1,13 @@
 //@auth
-//@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
+//@required(nodeGroup, resourceType, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod, cleanTriggers)
+
+if (cleanTriggers) {
+    var array = jelastic.env.trigger.GetTriggers(appid, session, ['ADD_NODE']).array;
+    for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);  
+    
+    array = jelastic.env.trigger.GetTriggers(appid, session, ['REMOVE_NODE']).array;
+    for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);  
+}
 
 resp = jelastic.env.trigger.AddTrigger('${env.envName}', session, 
     {
