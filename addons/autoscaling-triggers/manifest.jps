@@ -13,7 +13,7 @@
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/add-triggers.js",
+            "script": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/add-triggers.js?2",
             "params": {
               "nodeGroup": "cp",
               "resourceType": "CPU",
