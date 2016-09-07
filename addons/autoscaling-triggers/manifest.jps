@@ -22,7 +22,7 @@
               "scaleUpLoadPeriod": 1,
               "scaleDownValue": 30,
               "scaleDownLimit": 1,
-              "scaleDownLoadPeriod": 3
+              "scaleDownLoadPeriod": 1
             }
           }
         }
