@@ -5,8 +5,8 @@
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
     "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
     "env": {
-      "topology" : {
-        "nodes" : [
+      "topology": {
+        "nodes": [
           {
             "cloudlets": 16,
             "count": 1,
@@ -24,12 +24,14 @@
                 "/var/log"
               ]
             }
-          }        
+          }
         ]
       }
     },
     "onInstall": {
-      "call": ["install-jps"]
+      "call": [
+        "install-jps"
+      ]
     },
     "procedures": [
       {
