@@ -1,6 +1,5 @@
 //@auth
-//@required(nodeGroup, resourceType, cleanOldTriggers)
-//@required(scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
+//@req(nodeGroup, resourceType, cleanOldTriggers, scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
 if (cleanOldTriggers) {
     var actions = ['ADD_NODE', 'REMOVE_NODE'];
