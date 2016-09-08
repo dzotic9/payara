@@ -5,7 +5,7 @@ if (cleanOldTriggers) {
     var actions = ['ADD_NODE', 'REMOVE_NODE'];
     for (var i = 0; i < actions.length; i++){
         var array = jelastic.env.trigger.GetTriggers(appid, session, actions[i]).array;
-        for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);          
+        for (var j = 0; j < array.length; j++) jelastic.env.trigger.DeleteTrigger(appid, session, array[j].id);          
     }
 }
 
