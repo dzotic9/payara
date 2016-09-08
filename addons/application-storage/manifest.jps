@@ -6,7 +6,10 @@
     "description": "Deploying application archive and attaching storage to compute nodeGroup",
     "onInstall": [
       {
-        "call": "add-storage",
+        "call": [
+          "add-storage", 
+          "deploy-war"
+        ]
       },
       {
         "installAddon": {
@@ -37,6 +40,15 @@
             "metadata": {
               "layer": "storage"
             }
+          }
+        }
+      },
+      {
+        "id": "deploy-war",
+        "onCall": {
+          "nodeGroup" : "storage",
+          "execCmd": {
+            "commands":"wget http://goo.gl/9v0Ldv -O /data/helloworld.war >> /var/log/run.log 2>&1"
           }
         }
       },
