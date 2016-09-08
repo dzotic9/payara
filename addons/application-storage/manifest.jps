@@ -32,7 +32,7 @@
             "script": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/mount-storage.js",
             "params": {
               "mountTo": "cp",
-              "mountFrom": "${nodes.build.first.id}"
+              "mountFrom": "${nodes.storage.first.id}"
             }
           }
         }
