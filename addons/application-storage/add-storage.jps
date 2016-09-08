@@ -1,0 +1,9 @@
+//@auth 
+//@req(nodeId)
+
+//var resp = jelastic.env.control.GetEnvInfo('${env.envName}', session); 
+
+var volume ='/opt/payara/deployments';
+//resp = jelastic.env.control.AddDockerVolumeByGroup('${env.envName}', session, 'cp', volume); 
+resp = jelastic.env.file.AddMountPointByGroup('${env.envName}', session, 'cp', volume, 'nfs', null, '/data', nodeId, '', false); 
+return resp;
