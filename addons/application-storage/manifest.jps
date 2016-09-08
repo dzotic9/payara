@@ -18,9 +18,14 @@
     "addons": [
       {
         "id": "mount-storage-addon",
-        "onInstall": {
-          "call": ["deploy-war", "mount-storage"]
-        }
+        "onInstall": [
+          {
+            "call": ["deploy-war", "mount-storage"]
+          },
+          "restartContainers": {
+            "nodeGroup": "cp"
+          }
+        ]
       }
     ],
     "procedures": [
