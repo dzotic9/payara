@@ -17,9 +17,9 @@
             "dockerName": "jelastic/storage",
             "dockerTag": "latest",
             "displayName": "Storage",
-            "nodeGroup": "extra",
+            "nodeGroup": "storage",
             "metadata": {
-              "layer": "extra"
+              "layer": "storage"
             }
           }
         }
