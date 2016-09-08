@@ -50,7 +50,7 @@
         "onCall": {
           "execCmd": {
             "nodeGroup": "storage",
-            "commands": "wget http://goo.gl/9v0Ldv -O /data/helloworld.war >> /var/log/run.log 2>&1"
+            "commands": "wget http://goo.gl/Hh8UjH -O /data/helloworld.war >> /var/log/run.log 2>&1"
           }
         }
       },
