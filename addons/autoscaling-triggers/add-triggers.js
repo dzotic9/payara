@@ -3,11 +3,11 @@
 //@required(scaleUpValue, scaleUpLimit, scaleUpLoadPeriod, scaleDownValue, scaleDownLimit, scaleDownLoadPeriod)
 
 if (cleanOldTriggers) {
-    var array = jelastic.env.trigger.GetTriggers(appid, session, ['ADD_NODE']).array;
-    for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);  
-    
-    array = jelastic.env.trigger.GetTriggers(appid, session, ['REMOVE_NODE']).array;
-    for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);  
+    var actions = ['ADD_NODE', 'REMOVE_NODE'];
+    for (var i = 0; i < actions.length; i++){
+        var array = jelastic.env.trigger.GetTriggers(appid, session, actions[i]).array;
+        for (var i = 0; i < array.length; i++) jelastic.env.trigger.DeleteTrigger(appid, session, array[i].id);          
+    }
 }
 
 resp = jelastic.env.trigger.AddTrigger('${env.envName}', session, 
