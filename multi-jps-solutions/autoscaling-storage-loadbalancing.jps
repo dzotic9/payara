@@ -39,7 +39,7 @@
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?6",
+            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?7",
             "params": {
               "jps2": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps",
               "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
