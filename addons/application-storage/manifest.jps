@@ -5,7 +5,7 @@
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/addons/application-storage",
     "description": "Deploying application archive and attaching storage to compute nodeGroup",
     "onInstall": {
-      "call": ["add-storage", "mount-storage"]
+      "call": ["mount-storage"]
     },
     "procedures": [
       {
