@@ -1,0 +1,25 @@
+{
+  "jpsType": "update",
+  "application": {
+    "name": "Application Storage",
+    "homepage": "https://github.com/jelastic-jps/payara/tree/master/addons/application-storage",
+    "description": "Deploying application archive and attaching storage to compute nodeGroup",
+    "onInstall": {
+      "call": "add-storage"
+    },
+    "procedures": [
+      {
+        "id": "add-storage",
+        "onCall": {
+          "execScript": {
+            "type": "js",
+            "script": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/add-storage.js",
+            "params": {
+              "nodeGroup": "cp",
+            }
+          }
+        }
+      }
+    ]
+  }
+}
