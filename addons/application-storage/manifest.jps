@@ -6,10 +6,7 @@
     "description": "Deploying application archive and attaching storage to compute nodeGroup",
     "onInstall": [
       {
-        "call": [
-          "add-storage", 
-          "deploy-war"
-        ]
+        "call": "add-storage"
       },
       {
         "installAddon": {
@@ -22,7 +19,7 @@
       {
         "id": "mount-storage-addon",
         "onInstall": {
-          "call": "mount-storage"
+          "call": ["deploy-war", "mount-storage"]
         }
       }
     ],
