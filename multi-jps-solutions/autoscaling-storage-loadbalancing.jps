@@ -29,20 +29,7 @@
       }
     },
     "onInstall": {
-      "call": [
-        {
-          "procedure": "install-jps",
-          "params": {
-            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps"
-          }
-        },
-        {
-          "procedure": "install-jps",
-          "params": {
-            "jps2": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
-          }
-        }
-      ]
+      "call": ["install-jps"]
     },
     "procedures": [
       {
@@ -50,7 +37,11 @@
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?4"
+            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?4",
+            "params": {
+              "jps2": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps"
+              "jps3": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
+            }
           }
         }
       }
