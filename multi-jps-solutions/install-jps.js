@@ -1,5 +1,5 @@
 //@auth
-//@req(jps, test)
+//@req(test1, test2)
 
 //import com.hivext.api.core.utils.Transport;
 
