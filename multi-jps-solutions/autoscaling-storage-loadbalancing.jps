@@ -4,6 +4,8 @@
     "name": "Autoscaling + Storage + LB",
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
     "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container and adds load balancing layer.",
+    "env": {
+    },
     "onInstall": {
       "call": {
         "procedure": "install-jps",
