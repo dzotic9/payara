@@ -1,4 +1,4 @@
 
-//@required([test1, test2])
+//@req(mountTo, mountFrom)
 
-return {result: 0, response : {env: "aaa", jps: getParam("jps"), test: getParam("test1")}};
+return {result: 0, response : {env: "aaa", mountTo: mountTo, jps: getParam("jps"), test: getParam("mountFrom")}};
