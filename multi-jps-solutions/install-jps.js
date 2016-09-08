@@ -9,4 +9,4 @@ var envName = '${env.envName}';
 
 //return {result: 0, url: url, resp: eval(resp)};
 
-return {result: 0, env: envName, jps: jps}
+return {result: 0, env: envName, jps: getParam("jps")}
