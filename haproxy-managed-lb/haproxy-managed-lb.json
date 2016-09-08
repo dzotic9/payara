@@ -14,7 +14,9 @@
             "nodeGroup": "bl",
             "docker": {
               "image": "jelastic/haproxy-managed-lb",
-              "volumes" : ["/usr/local/etc/haproxy"]
+              "volumes": [
+                "/usr/local/etc/haproxy"
+              ]
             }
           }
         ]
@@ -35,19 +37,33 @@
         }
       }
     },
-    "onInstall": {
+    "onInstall": [
+      {
         "call": [
           "add-lb-layer",
-          "addClusterMembers"
+          "add-cluster-members"
         ]
       },
+      {
+        "installAddon": {
+          "id": "add-cluster-members-addon",
+          "nodeGroup": "cp"
+        }
+      }
+    ],
+    "addons": {
+      "id": "add-cluster-members-addon",
+      "onInstall": {
+        "call": "add-cluster-members"
+      }
+    },
     "procedures": [
       {
-        "id": "addClusterMembers",
+        "id": "add-cluster-members",
         "onCall": {
           "forEach(nodes.cp)": {
             "execCmd": {
-              "nodeGroup" : "bl",
+              "nodeGroup": "bl",
               "commands": [
                 "/root/lb_manager.sh --addhosts ${@i.intIP}"
               ]
@@ -55,7 +71,7 @@
           }
         }
       },
-    {
+      {
         "id": "add-lb-layer",
         "onCall": [
           {
