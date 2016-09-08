@@ -1,21 +1,48 @@
 {
-  "jpsType": "install",
+  "jpsType": "update",
   "application": {
     "name": "Autoscaling + Storage + LB",
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
     "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
     "env": {
       "topology" : {
-        "nodes" : []
+        "nodes" : [
+          {
+            "cloudlets": 16,
+            "count": 1,
+            "nodeGroup": "cp",
+            "docker": {
+              "image": "jelastic/payara-micro-cluster",
+              "env": {
+                "HAZELCAST_GROUP": "CHANGE_ME",
+                "HAZELCAST_PASSWORD": "CHANGE_ME",
+                "VERT_SCALING": "true"
+              },
+              "volumes": [
+                "/opt/payara/deployments",
+                "/opt/payara/config",
+                "/var/log"
+              ]
+            }
+          }        
+        ]
       }
     },
     "onInstall": {
-      "call": {
-        "procedure": "install-jps",
-        "params": {
-          "jps": "https://github.com/jelastic-jps/payara/raw/master/payara-micro-cluster/manifest.jps"
+      "call": [
+        {
+          "procedure": "install-jps",
+          "params": {
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps"
+          }
+        },
+        {
+          "procedure": "install-jps",
+          "params": {
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
+          }
         }
-      }
+      ]
     },
     "procedures": [
       {
