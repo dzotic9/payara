@@ -50,7 +50,7 @@
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?1"
+            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?2"
           }
         }
       }
