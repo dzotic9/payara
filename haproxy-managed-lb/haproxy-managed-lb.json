@@ -23,7 +23,7 @@
       },
       "onAfterScaleOut[nodeGroup:cp]": {
         "call": [
-          "addClusterMembers"
+          "add-cluster-members"
         ]
       },
       "onAfterScaleIn[nodeGroup:cp]": {
@@ -40,8 +40,7 @@
     "onInstall": [
       {
         "call": [
-          "add-lb-layer",
-          "add-cluster-members"
+          "add-lb-layer"
         ]
       },
       {
@@ -51,12 +50,14 @@
         }
       }
     ],
-    "addons": {
-      "id": "add-cluster-members-addon",
-      "onInstall": {
-        "call": "add-cluster-members"
+    "addons": [
+      {
+        "id": "add-cluster-members-addon",
+        "onInstall": {
+          "call": "add-cluster-members"
+        }
       }
-    },
+    ],
     "procedures": [
       {
         "id": "add-cluster-members",
