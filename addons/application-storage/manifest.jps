@@ -4,31 +4,32 @@
     "name": "Application Storage",
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/addons/application-storage",
     "description": "Deploying application archive and attaching storage to compute nodeGroup",
-    "env": {
-      "topology": {
-        "nodes": [
-          {
-            "nodeType": "docker",
-            "cloudlets": 16,
-            "count": 1,
-            "nodeGroup": "storage",
-            "docker": {
-              "image": "jelastic/storage",
-            }
-          }
-        ]
-      }
-    },
     "onInstall": {
-      "call": "add-storage"
+      "call": ["add-storage", "mount-storage"]
     },
     "procedures": [
       {
         "id": "add-storage",
         "onCall": {
+          "addNodes": {
+            "nodeType": "docker",
+            "cloudlets": 16,
+            "dockerName": "jelastic/storage",
+            "dockerTag": "latest",
+            "displayName": "Storage",
+            "nodeGroup": "extra",
+            "metadata": {
+              "layer": "extra"
+            }
+          }
+        }
+      },
+      {
+        "id": "mount-storage",
+        "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/add-storage.js",
+            "script": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/mount-storage.js",
             "params": {
               "mountTo": "cp",
               "mountFrom": "${nodes.build.first.id}"
