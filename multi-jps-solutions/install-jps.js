@@ -1,4 +1,3 @@
-//@auth
-//@req(test1, test2)
+//@required(test1, test2)
 
-return {result: 0, response : {env: "aaa", jps: getParam("jps")}}
+return {result: 0, response : {env: "aaa", jps: getParam("jps"), test: getParam("test1")}};
