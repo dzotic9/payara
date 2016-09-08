@@ -7,10 +7,12 @@
     "onInstall": {
       "call": "add-storage"
     },
-    "addons" : [
-      "id": "mount-storage-addon",
-      "onInstall": {
-        "call": "mount-storage"
+    "addons": [
+      {
+        "id": "mount-storage-addon",
+        "onInstall": {
+          "call": "mount-storage"
+        }
       }
     ],
     "procedures": [
