@@ -1,5 +1,5 @@
 //@auth
-//@req(jps)
+//@required(jps)
 
 import com.hivext.api.core.utils.Transport;
 
