@@ -20,10 +20,15 @@
         "id": "mount-storage-addon",
         "onInstall": [
           {
-            "call": ["deploy-war", "mount-storage"]
+            "call": [
+              "deploy-war",
+              "mount-storage"
+            ]
           },
-          "restartContainers": {
-            "nodeGroup": "cp"
+          {
+            "restartContainers": {
+              "nodeGroup": "cp"
+            }
           }
         ]
       }
