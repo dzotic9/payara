@@ -1,5 +1,5 @@
 {
-  "jpsType": "update",
+  "jpsType": "install",
   "application": {
     "name": "Autoscaling + Storage + LB",
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
