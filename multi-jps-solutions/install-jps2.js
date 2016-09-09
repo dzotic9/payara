@@ -3,11 +3,11 @@
 
 import com.hivext.api.development.Scripting;
 
-var scripting = new Scripting({
+var scripting = hivext.local.exp.wrapRequest(new Scripting({
     serverUrl : "http://" + window.location.host.replace("app.", "appstore.") + "/"
-});
+}));
 
-return scripting.eval({
+var resp = scripting.eval({
     script : "InstallApp",
     session : session,
     params : {
@@ -15,3 +15,5 @@ return scripting.eval({
         targetAppid : '${env.appid}',
     }
 });
+
+return {result:-1, response: resp}
