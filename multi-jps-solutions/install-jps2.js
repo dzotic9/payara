@@ -13,7 +13,7 @@ var params = {
   targetAppid: envAppid,
   session: session
 }
-var resp = new Transport().request(url, 'post', params, window.location.headers)
+var resp = new Transport().request(url, params, window.location.headers, com.jelastic.api.Response.class)
 
 return {result: -1, response: {resp: resp}};
 
