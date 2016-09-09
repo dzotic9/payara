@@ -19,8 +19,10 @@ var transport = WrapSessionRequest.wrapRequest(httpRequest, new Transport());
 var envName = '${env.envName}';
 var envAppid = '${env.appid}';
 var url = "https://"+window.location.host.replace("app.", "appstore.")+"/installapp?manifest="+jps+"&shortdomain="+envName+"&targetAppid="+envAppid+"&session="+session;
+var resp = transport.get(url);
+return {result: -1, response: {resp: resp}};
+
 //window.location.href = url;
-return {result: -1, response: {trsmport: transport, location : window.location}};
-//var resp = transport.get(url);
+//return {result: -1, response: {transport: transport, location : window.location}};
 
 //return {result: 0, response: {resp: eval(resp), url: url}};
