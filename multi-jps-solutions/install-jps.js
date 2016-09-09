@@ -1,4 +1,10 @@
+//@auth
+//@req(jps)
 
-//@req(mountTo, mountFrom)
+import com.hivext.api.core.utils.Transport;
 
-return {result: 0, response : {env: "aaa", mountTo: mountTo, jps: getParam("jps"), test: getParam("mountFrom")}};
+var envName = '${env.envName}';
+var url = "https://"+window.location.host.replace("app.", "appstore.")+"/installapp?manifest="+jps+"&shortdomain="+envName+"&targetAppid="+envName+"&session="+session;
+var resp = new Transport().get(url);
+
+return {result: 0, url: url, resp: eval(resp)};
