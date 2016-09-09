@@ -6,8 +6,7 @@ import com.hivext.api.server.core.utils.WrapSessionRequest;
 import java.lang.reflect.Field;
 import com.hivext.api.environment.Environment;
 
-var service = new Environment(appid, session);
-WrapSessionRequest.wrapRequest(service);
+var service = hivext.local.exp.wrapRequest(new Environment(appid, session));
 var transport = service.getClass().getSuperclass().getDeclaredField("transport");
 
 var envName = '${env.envName}';
