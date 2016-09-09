@@ -14,4 +14,4 @@ return scripting.eval({
         manifest : jps,
         targetAppid : '${env.appid}',
     }
-}).response;
+});
