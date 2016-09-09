@@ -1,7 +1,8 @@
 {
   "jpsType": "install",
+  "jpsVersion": "0.8",
   "application": {
-    "name": "Autoscaling + Storage + LB",
+    "name": "Payara Micro Cluster: Autoscaling + Storage + LB",
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
     "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
     "env": {
@@ -26,31 +27,65 @@
             }
           }
         ]
+      },
+      "onBeforeServiceScaleOut[nodeGroup:cp]": {
+        "call": "addClusterMembers"
+      },
+      "onAfterScaleIn[nodeGroup:cp]": {
+        "forEach(event.response.nodes)": {
+          "execCmd": {
+            "nodeGroup": "cp",
+            "commands": "$PAYARA_PATH/bin/clusterManager.sh --removehost ${@i.intIP}"
+          }
+        }
       }
     },
     "onInstall": {
       "call": [
-        { 
+        {
+          "procedure": "addClusterMembers"
+        },
+        {
           "procedure": "install-jps",
           "params": {
-            "jps" : "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps"
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps"
           }
         },
-        { 
+        {
           "procedure": "install-jps",
           "params": {
-            "jps" : "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps"
+          }
+        },
+        {
+          "procedure": "install-jps",
+          "params": {
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/haproxy-managed-lb/haproxy-managed-lb.json"
           }
         }
       ]
     },
     "procedures": [
       {
+        "id": "addClusterMembers",
+        "onCall": {
+          "forEach(nodes.cp)": {
+            "execCmd": {
+              "nodeGroup": "cp",
+              "commands": "$PAYARA_PATH/bin/clusterManager.sh --addhost ${@i.intIP}"
+            }
+          }
+        }
+      },
+      {
         "id": "install-jps",
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?701"
+            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?701",
+            "params": {
+              "jps": "${this.jps}"
+            }
           }
         }
       }
