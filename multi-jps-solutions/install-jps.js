@@ -15,7 +15,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 var httpRequest = new MockHttpServletRequest();
 httpRequest.setParameters(window.location.headers);
 for (h in window.location.headers){
-  httpRequest.addHeader(h, location.headers[h]);
+  httpRequest.addHeader(h, window.location.headers[h]);
 }
 var transport = WrapSessionRequest.wrapRequest(httpRequest, new Transport());
 
