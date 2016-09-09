@@ -16,4 +16,4 @@ var resp = scripting.eval({
     }
 });
 
-return {result:-1, response: resp}
+return resp;
