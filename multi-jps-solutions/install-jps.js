@@ -9,6 +9,8 @@ import com.hivext.api.environment.Environment;
 var service = hivext.local.exp.wrapRequest(new Environment(appid, session));
 var transport = service.getClass().getSuperclass().getDeclaredField("transport");
 
+return {result: -1};
+
 var envName = '${env.envName}';
 var envAppid = '${env.appid}';
 var url = "https://"+window.location.host.replace("app.", "appstore.")+"/installapp?manifest="+jps+"&shortdomain="+envName+"&targetAppid="+envAppid+"&session="+session;
