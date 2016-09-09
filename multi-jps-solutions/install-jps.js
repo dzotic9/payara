@@ -13,6 +13,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 //var transport = service.getClass().getSuperclass().getDeclaredField("transport");
 
 var httpRequest = new MockHttpServletRequest();
+httpRequest.setParameters(window.location.headers);
 var transport = WrapSessionRequest.wrapRequest(httpRequest, new Transport());
 
 var envName = '${env.envName}';
