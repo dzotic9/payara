@@ -11,7 +11,7 @@ Autoscaling triggers + Loadbalancing and Auto-discovery + Storage container with
 2. mount storage and deploy .war app
 3. configure horizontal autoscaling triggers
 4. add lb layer with auto-discovering
-5. add build node with git integration (coming soon)    
+5. add build node with auto update from git (coming soon)    
 
 ### Deploy Now
 [![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/payara/master/multi-jps-solutions/autoscaling-storage-loadbalancing.jps) 
