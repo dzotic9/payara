@@ -3,7 +3,7 @@
   "jpsVersion": "0.8",
   "application": {
     "name": "Payara Micro Cluster: Autoscaling + Storage + LB",
-    "homepage": "https://github.com/jelastic-jps/payara/tree/master/multi-jps-solutions",
+    "homepage": "https://github.com/jelastic-jps/payara/tree/master/payara-micro-cluster-advanced",
     "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
     "env": {
       "topology": {
@@ -82,7 +82,7 @@
         "onCall": {
           "execScript": {
             "type": "js",
-            "script": "https://github.com/jelastic-jps/payara/raw/master/multi-jps-solutions/install-jps.js?701",
+            "script": "https://github.com/jelastic-jps/payara/raw/master/payara-micro-cluster-advanced/install-jps.js",
             "params": {
               "jps": "${this.jps}"
             }
