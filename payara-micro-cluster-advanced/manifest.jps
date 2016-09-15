@@ -60,7 +60,7 @@
         {
           "procedure": "install-jps",
           "params": {
-            "jps": "https://github.com/jelastic-jps/payara/raw/master/haproxy-managed-lb/haproxy-managed-lb.json"
+            "jps": "https://github.com/jelastic-jps/payara/raw/master/addons/haproxy-load-balancing/manifest.json"
           }
         }
       ]
