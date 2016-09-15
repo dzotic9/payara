@@ -1,4 +1,4 @@
-#Payara Micro Cluster Pack 
+#Payara Micro Cluster - Advanced Pack 
 
 Autoscaling triggers + Load balancing and Auto-discovery + Storage container with pre-deployed war application.    
 
