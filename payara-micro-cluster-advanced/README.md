@@ -1,6 +1,6 @@
 #Payara Micro Cluster Pack 
 
-Autoscaling triggers + Loadbalancing and Auto-discovery + Storage container with pre-deployed war application.    
+Autoscaling triggers + Load balancing and Auto-discovery + Storage container with pre-deployed war application.    
 
 ###Topology 
 
