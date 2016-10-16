@@ -15,8 +15,8 @@
             "docker": {
               "image": "jelastic/payara-micro-cluster",
               "env": {
-                "HAZELCAST_GROUP": "CHANGE_ME",
-                "HAZELCAST_PASSWORD": "CHANGE_ME",
+                "HAZELCAST_GROUP": "${fn.uuid}",
+                "HAZELCAST_PASSWORD": "${fn.password}",
                 "VERT_SCALING": "true"
               },
               "volumes": [
