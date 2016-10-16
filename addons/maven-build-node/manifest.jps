@@ -49,7 +49,15 @@
         "onCall": {
           "execCmd": {
             "nodeGroup": "maven",
-            "commands": "wget http://goo.gl/Swzu9b -O /data/helloworld.war >> /var/log/run.log 2>&1"
+            "commands": [
+                "mkdir /tmp/jem_install &>> /var/log/run.log",
+                "wget https://github.com/jelastic/jem/archive/master.zip -O /tmp/jem_install/jem.zip &>> /var/log/run.log", 
+                "unzip /tmp/jem_install/jem.zip -d /tmp/jem_install &>> /var/log/run.log", 
+                "cp -rf /tmp/jem_install/jem-master/* / &>> /var/log/run.log", 
+                "rm -rf /tmp/jem_install/ &>> /var/log/run.log",
+                "jem maven createproject -u https://github.com/jelasticxx/WebAppMaven.git -t GIT -b master -n payara -au true -m 1 -c helloworld &>> /var/log/run.log",
+                "jem maven build -n payara &>> /var/log/run.log"
+                ]
           }
         }
       }
