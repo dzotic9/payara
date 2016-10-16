@@ -1,0 +1,58 @@
+{
+  "jpsType": "update",
+  "application": {
+    "name": "Maven Build Node",
+    "homepage": "https://github.com/jelastic-jps/payara/tree/master/addons/maven-build-node",
+    "description": "Adding maven as a build node",
+    "onInstall": [
+      {
+        "call": "add-maven"
+      },
+      {
+        "installAddon": {
+          "id": "add-maven-addon",
+          "nodeGroup": "cp"
+        }
+      }
+    ],
+    "addons": [
+      {
+        "id": "add-maven-addon",
+        "onInstall": [
+          {
+            "call": [
+              "add-project"
+            ]
+          }
+        ]
+      }
+    ],
+    "procedures": [
+      {
+        "id": "add-maven",
+        "onCall": {
+          "addNodes": {
+            "nodeType": "docker",
+            "cloudlets": 16,
+            "dockerName": "devbeta/maven3",
+            "dockerTag": "latest",
+            "displayName": "Maven",
+            "nodeGroup": "maven",
+            "metadata": {
+              "layer": "maven"
+            }
+          }
+        }
+      },
+      {
+        "id": "add-project",
+        "onCall": {
+          "execCmd": {
+            "nodeGroup": "maven",
+            "commands": "wget http://goo.gl/Swzu9b -O /data/helloworld.war >> /var/log/run.log 2>&1"
+          }
+        }
+      }
+    ]
+  }
+}
