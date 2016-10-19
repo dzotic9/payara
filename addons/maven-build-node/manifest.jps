@@ -55,7 +55,7 @@
                 "unzip /tmp/jem_install/jem.zip -d /tmp/jem_install &>> /var/log/run.log", 
                 "cp -rf /tmp/jem_install/jem-master/* / &>> /var/log/run.log", 
                 "rm -rf /tmp/jem_install/ &>> /var/log/run.log",
-                "jem maven createproject -u https://github.com/jelasticxx/WebAppMaven.git -t GIT -b master -n payara -au true -m 1 -c helloworld &>> /var/log/run.log",
+                "jem maven createproject -u https://github.com/jelasticxx/WebAppMaven.git -t GIT -b master -n payara -au true -m 1 -c helloworld --skip-upload true &>> /var/log/run.log",
                 "jem maven build -n payara &>> /var/log/run.log"
                 ]
           }
