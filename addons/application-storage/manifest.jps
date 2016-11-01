@@ -55,7 +55,7 @@
         "onCall": {
           "execCmd": {
             "nodeGroup": "storage",
-            "commands": "wget http://goo.gl/Swzu9b -O /data/ROOT.war >> /var/log/run.log 2>&1"
+            "commands": "wget https://goo.gl/EQ2ynB -O /data/ROOT.war >> /var/log/run.log 2>&1"
           }
         }
       },
