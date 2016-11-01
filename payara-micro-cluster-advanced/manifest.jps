@@ -71,7 +71,7 @@
       },
       {
         "id": "install-jps",
-         "onCall": {
+        "onCall": {
           "forEach(this.jps)": {
             "execScript": {
               "type": "js",
@@ -81,7 +81,7 @@
               }
             }
           }
-        }        
+        }  
       }
     ]
   }
