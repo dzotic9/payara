@@ -71,18 +71,17 @@
       },
       {
         "id": "install-jps",
-          "onCall": {
-            "forEach(this.jps)": {
-              "execScript": {
-                "type": "js",
-                "script": "https://github.com/jelastic-jps/payara/raw/master/payara-micro-cluster-advanced/proc-install-jps.js",
-                "params": {
-                  "jps": "${@i}"
-                }
+         "onCall": {
+          "forEach(this.jps)": {
+            "execScript": {
+              "type": "js",
+              "script": "https://github.com/jelastic-jps/payara/raw/master/payara-micro-cluster-advanced/proc-install-jps.js",
+              "params": {
+                "jps": "${@i}"
               }
             }
-          }        
-        }
+          }
+        }        
       }
     ]
   }
