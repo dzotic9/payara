@@ -7,7 +7,7 @@ The JPS package initially deploys one container with Payara Server Full. The pac
 
 In order to get this solution instantly deployed, click the "Get It Hosted Now" button, specify your email address within the widget, choose one of the [Jelastic Public Cloud providers](https://jelastic.cloud) and press Install.
 
-[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https%3A%2F%2Fgithub.com%2Fjelastic%2Fpayara%2Fraw%2Fmaster%2Fpayara-server-full%2Fmanifest.jps)
+[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https%3A%2F%2Fgithub.com%2Fjelastic%2Fpayara%2Fraw%2Fmaster%2Fpayara-server-full%2Fmanifest.jps&min-version=4.6&keys=app.mircloud.host;app.jelastic.dogado.eu;app.fi.cloudplatform.fi;app.appengine.flow.ch;app.jelasticlw.com.br;app.paas.datacenter.fi;app.whelastic.net)
 
 To deploy this package to Jelastic  Cloud, import [this JPS manifest](../../../raw/master/payara-server-full/manifest.jps) within your dashboard ([detailed instruction](https://docs.jelastic.com/environment-export-import#import)).
 
