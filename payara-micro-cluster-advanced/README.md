@@ -14,4 +14,4 @@ Autoscaling triggers + Load balancing and Auto-discovery + Storage container wit
 5. add build node with auto update from git (coming soon)    
 
 ### Deploy Now
-[![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/payara/master/payara-micro-cluster-advanced/manifest.jps) 
+[![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/payara/master/payara-micro-cluster-advanced/manifest.jps&min-version=4.6&keys=app.mircloud.host;app.jelastic.dogado.eu;app.fi.cloudplatform.fi;app.appengine.flow.ch;app.jelasticlw.com.br;app.paas.datacenter.fi;app.whelastic.net) 
