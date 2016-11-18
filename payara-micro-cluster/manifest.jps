@@ -2,9 +2,15 @@
   "jpsType": "install",
   "jpsVersion": "0.8",
   "application": {
-    "name": "Payara Micro Cluster",
+    "name": "Simple Payara Micro Cluster",
+    "logo": "https://raw.githubusercontent.com/jelastic-jps/payara/master/images/70.png",
+    "categories": [
+      "apps/clusters"
+    ],
     "homepage": "http://www.payara.fish/",
-    "description": "Autoscalable and Highly Available Payara Micro Cluster",
+    "description": {"text": "Autoscalable and Highly Available Payara Micro Cluster",
+      "short": "Payara Micro Cluster with session replication based on Hazelcast"
+    },
     "env": {
       "topology": {
         "nodes": [
