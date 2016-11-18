@@ -1,10 +1,16 @@
 {
   "jpsType": "install",
-  "jpsVersion" : "0.8",
+  "jpsVersion": "0.8",
   "application": {
-    "name": "Payara Micro Cluster Multicast",
-    "homepage": "http://jelastic.com/",
-    "description": "Payara Micro cluster based on multicast networking",
+    "name": "Multicast Payara Cluster ",
+    "categories": [
+      "apps/clusters"
+    ],
+    "homepage": "https://github.com/jelastic-jps/payara/tree/master/payara-micro-cluster-multicast",
+    "description": {
+      "text": "Payara Micro cluster based on multicast networking",
+      "short": "Payara Micro Cluster with session replication based on IP multicast"
+    },
     "env": {
       "topology": {
         "nodes": [
@@ -14,20 +20,20 @@
             "nodeGroup": "cp",
             "docker": {
               "image": "jelastic/payara-micro-cluster-multicast",
-              "env" : {
-                "VTUN_PASSWORD" : "CHANGE_ME"
+              "env": {
+                "VTUN_PASSWORD": "CHANGE_ME"
               },
               "links": "mcast:vtun_server"
             }
           },
-	  {
+          {
             "cloudlets": 16,
             "nodeGroup": "mcast",
             "displayName": "Bridge",
             "docker": {
               "image": "jelastic/payara-micro-cluster-multicast-vtun-bridge:latest",
-              "env" : {
-                "VTUN_PASSWORD" : "CHANGE_ME"
+              "env": {
+                "VTUN_PASSWORD": "CHANGE_ME"
               }
             }
           }
