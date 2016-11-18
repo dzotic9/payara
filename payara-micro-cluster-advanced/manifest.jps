@@ -3,8 +3,14 @@
   "jpsVersion": "0.8",
   "application": {
     "name": "Payara Micro Cluster: Autoscaling + Storage + LB",
+    "categories": [
+      "apps/clusters"
+    ],
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/payara-micro-cluster-advanced",
-    "description": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
+    "description": {
+      "text": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
+      "short": "Advanced Payara Cluster with preconfigured horizontal autoscaling, load balancing, auto-discovery and storage container with pre-deployed war application."
+    },
     "env": {
       "topology": {
         "nodes": [
@@ -51,7 +57,7 @@
             "jps": [
               "https://github.com/jelastic-jps/payara/raw/master/addons/application-storage/manifest.jps",
               "https://github.com/jelastic-jps/payara/raw/master/addons/autoscaling-triggers/manifest.jps",
-              "https://github.com/jelastic-jps/payara/raw/master/addons/haproxy-load-balancing/manifest.json" 
+              "https://github.com/jelastic-jps/payara/raw/master/addons/haproxy-load-balancing/manifest.json"
             ]
           }
         }
@@ -81,7 +87,7 @@
               }
             }
           }
-        }  
+        }
       }
     ]
   }
