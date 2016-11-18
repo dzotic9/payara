@@ -2,7 +2,8 @@
   "jpsType": "install",
   "jpsVersion": "0.8",
   "application": {
-    "name": "Multicast Payara Cluster ",
+    "name": "Multicast Payara Cluster",
+    "logo": "https://raw.githubusercontent.com/jelastic-jps/payara/master/images/70.png",
     "categories": [
       "apps/clusters"
     ],
