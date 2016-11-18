@@ -2,11 +2,12 @@
   "jpsType": "install",
   "jpsVersion": "0.8",
   "application": {
-    "name": "Payara Micro Cluster: Autoscaling + Storage + LB",
-    "categories": [
+    "name": "Advanced Payara Micro Cluster",
+    "categories" : [
       "apps/clusters"
     ],
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/payara-micro-cluster-advanced",
+    "logo": "https://raw.githubusercontent.com/jelastic-jps/payara/master/images/70.png",
     "description": {
       "text": "The package automatically provisions Payara Micro cluster, installs autoscaling triggers, mounts storage container, deploys application war and adds load balancing layer.",
       "short": "Advanced Payara Cluster with preconfigured horizontal autoscaling, load balancing, auto-discovery and storage container with pre-deployed war application."
