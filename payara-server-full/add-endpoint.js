@@ -7,14 +7,14 @@ var APPID = getParam("TARGET_APPID"),
     PROTOCOL = getParam("protocol", "TCP"),
     oEnvInfo,
     nNodesCount,
-	oScripting,
+    oScripting,
     oResp,
     i;
 
-oScripting =  new Scripting({
+oScripting =  hivext.local.exp.wrapRequest(new Scripting({
     serverUrl : "http://" + window.location.host.replace("app", "appstore") + "/",
     session : SESSION
-});
+}));
 
 oEnvInfo = jelastic.environment.control.GetEnvInfo(APPID, session);
 
