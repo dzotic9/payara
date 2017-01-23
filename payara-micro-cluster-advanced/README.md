@@ -12,7 +12,7 @@ Autoscaling triggers + Load balancing and Auto-discovery + Storage container wit
 3. Configuring horizontal autoscaling triggers
 4. Adding load balancer layer with nodes auto-discovery 
 
-###CI/CD Pipeline
+###CI/CD Pipeline - Build Maven
 Git-push-deploy integration can be added with additional package. Please follow the instructions at the link
 https://github.com/jelastic-jps/git-push-deploy-with-maven
 
