@@ -56,9 +56,9 @@
           "execCmd": {
             "nodeGroup": "storage",
             "commands": [
-              "wget https://goo.gl/EQ2ynB -O /data/ROOT.war >> /var/log/run.log 2>&1",
-              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/RAM-Loader.war -O /data/ram.war >> /var/log/run.log 2>&1",
-              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/CPU-Loader.war -O /data/cpu.war >> /var/log/run.log 2>&1"
+              "wget https://goo.gl/EQ2ynB -O /deployment/ROOT.war >> /var/log/run.log 2>&1",
+              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/RAM-Loader.war -O /deployment/ram.war >> /var/log/run.log 2>&1",
+              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/CPU-Loader.war -O /deployment/cpu.war >> /var/log/run.log 2>&1"
               ]
           }
         }
