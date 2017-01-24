@@ -1,9 +1,8 @@
 //@auth 
 //@req(mountTo, mountFrom)
 
-//var resp = jelastic.env.control.GetEnvInfo('${env.envName}', session); 
+resp = jelastic.env.file.AddMountPointByGroup('${env.envName}', session, mountTo, '/opt/payara/deployments', 'nfs', null, '/deployment', mountFrom, '', false); 
+if (resp.result != 0) return resp;
 
-var volume ='/opt/payara/deployments';
-//resp = jelastic.env.control.AddDockerVolumeByGroup('${env.envName}', session, mountTo, volume); 
-resp = jelastic.env.file.AddMountPointByGroup('${env.envName}', session, mountTo, volume, 'nfs', null, '/data', mountFrom, '', false); 
+resp = jelastic.env.file.AddMountPointByGroup('${env.envName}', session, mountTo, '/data', 'nfs', null, '/data', mountFrom, '', false); 
 return resp;
