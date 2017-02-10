@@ -1,2 +1,2 @@
 - RAM - /ram/loader?mem=1500&duration=60 (MB + sec)
-- CPU - /cpu/loader?cpu=1&count=1000000 (cpu + cycles)
+- CPU - /cpu/?threads=1&seconds=60 (# of threads + sec)
