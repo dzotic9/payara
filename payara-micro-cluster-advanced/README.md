@@ -50,7 +50,7 @@ where
 
 To initiate CPU load simulation, execute the link of the next type:
 
-_http://**{env.domain}**/cpu/?threads=**{threads}**&seconds=**{time}**_
+_http://**{env.domain}**/cpu/?threads=**{threads}**&duration=**{time}**_
 
 where
 * _**{env.domain}**_ - domain of your environment
