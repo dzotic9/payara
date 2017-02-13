@@ -1,5 +1,7 @@
 #Payara Micro Cluster - Advanced Package
 
+### Load Balancing + Autoscaling triggers + Shared Storage 
+
 Reliable and auto-scalable [Payara Micro](http://www.payara.fish/payara_micro) cluster with preconfigured alerts on high load, bound Data Storage container, inbuilt new servers auto-discovery at load balancing layer and example apps for load testing.
 
 ##Payara Micro Cluster Topology
