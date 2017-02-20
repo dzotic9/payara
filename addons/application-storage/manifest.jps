@@ -58,8 +58,7 @@
             "commands": [
               "mkdir /deployment",
               "wget https://goo.gl/EQ2ynB -O /deployment/ROOT.war >> /var/log/run.log 2>&1",
-              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/RAM-Loader.war -O /deployment/ram.war >> /var/log/run.log 2>&1",
-              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/CPU-Loader.war -O /deployment/cpu.war >> /var/log/run.log 2>&1"
+              "wget https://github.com/jelastic-jps/payara/raw/master/addons/load-testing/lib/Loader.war -O /deployment/loader.war >> /var/log/run.log 2>&1"
               ]
           }
         }
