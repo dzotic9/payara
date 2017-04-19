@@ -57,7 +57,7 @@ where
 * _**{threads}**_ - number of parallel CPU threads
 * _**{time}**_ - testing duration (in seconds)
 
-##How to Install Advanced Payara Micro Cluster
+## How to Install Advanced Payara Micro Cluster
 
 The Payara Micro Cluster package deployment is completely automated and available for everyone:
 * in case you don’t have Jelastic account yet, click on the button below to easily create a trial one and initiate the solution deployment:
