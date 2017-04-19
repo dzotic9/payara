@@ -4,7 +4,7 @@
 
 Reliable and auto-scalable [Payara Micro](http://www.payara.fish/payara_micro) cluster with preconfigured alerts on high load, bound Data Storage container, inbuilt new servers auto-discovery at load balancing layer and example apps for load testing.
 
-##Payara Micro Cluster Topology
+## Payara Micro Cluster Topology
 
 Payara Micro Cluster package contains the minimal required amount of instances by default, but includes all the necessary tools for easy growth upon the necessity to handle the increased amount of incoming traffic.
 
@@ -17,7 +17,7 @@ This solution is build on top of [Docker containers](https://docs.jelastic.com/d
 
 Additionally, as a basic benefit of hosting at Jelastic Cloud Platform, the [automatic vertical scaling](https://docs.jelastic.com/automatic-vertical-scaling) (from 1 to 16 cloudlets for this package) and [load alerts](https://docs.jelastic.com/load-alerts) notifications are applied to all containers by default. Obviously, upon the necessity, each of these predefined settings can be tuned up to your needs via the appropriate dashboard sections.
 
-##Auto-Scaling Configuration
+## Auto-Scaling Configuration
 
 Payara Micro cluster package automatically adjusts the number of compute nodes based on current load (up to 10 instances per layer) according to the following conditions:
 * +1 node if CPU usage is >70% for at least 1 minute
@@ -29,13 +29,13 @@ The appropriate modifications are automatically applied to the HAProxy Load Bala
 
 In case you’d like to change the conditions of automatic nodes’ scaling manually, refer to the appropriate triggers’ parameters within the [Automatic Horizontal Scaling](https://docs.jelastic.com/automatic-horizontal-scaling) settings section.
 
-##Load Testing with Default Apps
+## Load Testing with Default Apps
 
 Advanced Payara Micro Cluster solution is provisioned with 3 .war applications - example **Hello World**, deployed to the server by default, and two separate testing tools for **RAM** and **CPU**. All of them are stored within the **deployments** Storage folder, that is [mounted](https://docs.jelastic.com/mount-points) to the app server layer.
 
 The mentioned load testing simulators can be used to check how your cluster is adapted to handle load spikes. The process of new nodes’ automatic addition/removal can be tracked via the in-built dashboard tools: [statistics monitoring](https://docs.jelastic.com/view-app-statistics), [log files](https://docs.jelastic.com/view-log-files) and [scaling triggers history](https://docs.jelastic.com/automatic-horizontal-scaling#history).
 
-###RAM Loading
+### RAM Loading
 
 In order to run memory test, open the following link in your browser:
 
@@ -46,7 +46,7 @@ where
 * _**{RAM}**_ - amount of RAM load to send (in MiB)
 * _**{time}**_ - testing duration (in seconds)
 
-###CPU Loading
+### CPU Loading
 
 To initiate CPU load simulation, execute the link of the next type:
 
