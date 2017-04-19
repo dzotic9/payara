@@ -1,4 +1,4 @@
-#Payara Micro Cluster - Advanced Package
+# Payara Micro Cluster - Advanced Package
 
 ### Load Balancing + Autoscaling triggers + Shared Storage 
 
