@@ -4,7 +4,7 @@
 The JPS package initially deploys one container with [Payara Micro](http://blog.payara.fish/introducing-payara-micro) application server. 
 ### Topology 
 
-![payara-micro-cluster -simple-topology](images/payara-micro-cluster -simple-topology.png)
+![payara-micro-cluster-simple-topology](../images/payara-micro-cluster-simple-topology.png)
 
 ### Horizontal Scaling 
 
