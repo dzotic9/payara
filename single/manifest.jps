@@ -1,0 +1,22 @@
+{
+    "jpsVersion": "1.0",
+    "jpsType": "install",
+    "application": {
+        "id": "payara",
+        "name": "Payara 5.0",
+        "type": "java",
+        "description": {
+            "en": "Payara 5.0"
+        },
+        "env": {
+            "topology": {
+                "engine": "java",
+                "nodes": [{
+                    "count": 1,
+                    "cloudlets": 16,
+                    "nodeType": "payara"
+                }]
+            }
+        }
+    }
+}
