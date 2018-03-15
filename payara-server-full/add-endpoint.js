@@ -34,17 +34,6 @@ for (i = 0; i < nNodesCount; i += 1) {
     }
 }
 
-return oScripting.eval({
-    script : "InstallApp",
-    targetAppid : APPID,
-    manifest : toJSON({
-        "jpsType" : "update",
-        "application" : {
-            "id": "Payara Server Full",
-            "name": "Payara Server Full",
-            "success": {
-                "email": "Below you will find the link to the Payara Server Admin Console.</br> <table style='font-size:13px; border: none;'><tr><td>Admin Console URL:</td><td style='padding-left: 10px;'><a href='https://${env.domain}:"+ oResp.object.publicPort + "/' target='_blank'>https://${env.domain}:"+ oResp.object.publicPort+"/</a></td></tr><tr><td>Username:</td><td  style='padding-left: 10px'>admin</td></tr><tr><td>Password:</td><td  style='padding-left: 10px'>admin</td></tr></table />"
-            }
-        }
-    })
-});
+return {
+    result: 0
+};
