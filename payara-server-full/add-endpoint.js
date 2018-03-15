@@ -35,5 +35,10 @@ for (i = 0; i < nNodesCount; i += 1) {
 }
 
 return {
-    result: 0
-};
+    result: 0,
+    onAfterReturn : {
+        sendEmail : {
+            port : oResp.object.publicPort
+        }
+    }
+}
