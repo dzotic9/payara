@@ -3,7 +3,7 @@
   "jpsVersion": "0.8",
   "application": {
     "name": "Advanced Payara Micro Cluster",
-    "categories" : [
+    "categories": [
       "apps/clusters"
     ],
     "homepage": "https://github.com/jelastic-jps/payara/tree/master/payara-micro-cluster-advanced",
@@ -81,7 +81,7 @@
         "onCall": {
           "forEach(this.jps)": {
             "install": {
-              "jps": "${@i}",
+              "jps": "${@i}"
             }
           }
         }
