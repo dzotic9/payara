@@ -81,10 +81,7 @@
         "onCall": {
           "forEach(this.jps)": {
             "install": {
-              "jps": "https://github.com/dzotic9/payara/raw/master/payara-micro-cluster-advanced/scripts/proc-install-jps.js?_r=123",
-              "settings": {
-                "jps": "${@i}"
-              }
+              "jps": "${@i}",
             }
           }
         }
